@@ -1,0 +1,142 @@
+I am Praveen, currently working at Accenture as an Informatica PowerCenter Developer on a telecom domain project. My role involves creating mappings, sessions, worklets, and workflows using both active and passive transformations based on business logic. I have developed SCD Type 2 mappings to maintain historical data and have performed debugging and optimization on these mappings. Additionally, I have been involved in production deployments and code migrations to ensure consistency across lower environments
+
+Debugging: -  https://www.youtube.com/watch?v=7fgOfUM9H5I
+
+Normal debugging, Breakpoint debugging.
+
+Normal debugging is to check the instance by processing data through the instance.
+Breakpoint debugging: We can check the specific data how is processing through that particular instance.
+
+
+Optimization: - https://www.youtube.com/watch?v=QD8XsdzZJ2c
+
+pushdown optimization : Source or target or full.
+source : Create index, SQL optimize, partition
+Target : drop index, partition, create index
+
+partitioning:
+
+Database 
+Round-Robin
+pass-through
+range key
+
+SCD types: - https://www.youtube.com/watch?v=vjR-3gIu1F0
+
+type -1 - we can insert or update or delete, but we cannot maintain the history here.
+type -2 
+type -3 
+
+Transformation: 
+
+Source qualifier and filter
+filter and router
+expression and aggregator
+joiner and source qualifier
+update strategy 
+connected and unconnected
+lookup override and sq override
+
+Basic technical questions:
+
+1)mapping parameter and mapping variable
+
+Mapping parameter : it is like declaring, it cannot change the value during session run.
+Mapping Variable : it can change the value during session run.
+
+2)data driven sessions.
+
+data driven determine how data should be treated when update strategy is used in mapping by using DD_UPDATE, DD_DETELE, and DD_INSERT.
+
+3)Can we store previous session logs in Informatica.
+
+Yes, we can store previous session logs by setting up in the session properties.
+
+4)output files that are created by the Informatica server at runtime.
+
+Output file, Session log, Bad file, cache and rejected file.
+
+5)target load order?
+
+It specify the order in which data to be loaded into the target when multiple source is mapped to multiple target.
+
+6)Incremental Loading?
+
+It does not load entire data every time, it only load the updated or new data into the target. we can achieve it by using the mapping variable.
+
+7)pmcmd command.
+
+It is in build command line in informatica. used to start or stop workflow, we can start particular task in the workflow by using PMCMD.
+by using pmrep we can create, delete recovery the repository folder, object and groups.
+
+8)tracing level.
+
+Normal--> terse --> verbose initialization --> verbose data
+
+9)different types of tasks.
+
+session task, assignment task, command task, email task, event wait task, decision task. 
+
+10)How do you handle error logging.
+
+Enable session logs and set log levels.
+Use reject files to capture error records.
+
+11)What is meant by Session Recovery Strategy in Informatica?
+
+it is used for restart the session if it is fails and it will continue from where is fails.
+
+12?What is meant by 'Output is deterministic' and 'Output is repeatable' in Informatica?
+
+output is deterministic : source output does not change between session runs.
+output is repeatable : order of the output remains same across session runs.
+
+13)How can you update a record in the target table without using the Update Strategy transformation?
+
+we can use update override in the session properties.
+
+14)How can joins be performed in Informatica without using the Joiner transformation?
+
+we can use "user define joins" in source qualifier transformation properties.
+
+15)What is a Mapplet and how is it used in Informatica?
+
+Mapplet is set of transformation and that can we reusable.
+
+16)What is a session in Informatica PowerCenter?
+
+it is an a task in informatica to run the mapping.
+
+17)What is the difference between a normal and a bulk loading session?
+
+Normal load : It loads data row by row.
+Bulk load : it loads entire data at once.
+
+18)How do you handle session failures in Informatica?
+
+Session Recovery: Restarting the session from the point of failure using recovery tables.
+Error Handling: Redirecting error rows to an error file.
+Workflow Monitor: Monitoring and troubleshooting session failures.
+
+19)What is the role of the session log in Informatica?
+
+The session log contains detailed information about the session execution, including start and end times, row counts, errors, and warnings. It is useful for debugging and performance analysis.
+
+20)What is the significance of the session parameter file?
+
+The session parameter file contains values for mapping parameters and variables.
+
+21)How can you handle session dependencies in a workflow?
+
+Session dependencies can be managed using workflow tasks like Decision, Event Wait, and Event Raise.
+
+22)How can you use pre-session and post-session commands in Informatica?
+
+Pre-session and post-session commands can be used to execute shell commands or scripts before and after the session runs. These commands can be configured in the session properties.
+
+
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi-t_y37rONAxUonK8BHWUOCv0QFnoECAIQAQ&url=https%3A%2F%2Fwww.interviewbit.com%2Finformatica-interview-questions%2F&usg=AOvVaw2zV2jl5KqFbGE2hXeChQ4D&opi=89978449
+
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi-t_y37rONAxUonK8BHWUOCv0QFnoECA4QAQ&url=https%3A%2F%2Fblogs.rajinformatica.com%2Finformatica-powercenter-interview-questions-set-01%2F&usg=AOvVaw0gNLU5kVcAkiSZPYyBaDOS&opi=89978449
+
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi-t_y37rONAxUonK8BHWUOCv0QFnoECCIQAQ&url=https%3A%2F%2Fintellipaat.com%2Fblog%2Finterview-question%2Finformatica-interview-questions%2F&usg=AOvVaw3N7Rphl_NRGcwLKkR9PjGQ&opi=89978449
