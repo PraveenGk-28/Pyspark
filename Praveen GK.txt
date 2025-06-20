@@ -1,0 +1,2331 @@
+select * from cs_deposit;
+select * from cs_salesorder;
+select * from cs_salestransaction;
+select * from cs_transactionassignment;
+select * from cs_rasalestransaction;
+select * from cs_credit;
+
+ 
+
+select sum(value),payeeseq from cs_credit where periodseq = '2533274790396634' and name = 'CIR_FR_Postpay_GCB_ROLL'
+group by payeeseq; -- CIR sum(value) for a particular position
+select * from cs_measurement where periodseq = '2533274790396634' and payeeseq = '4503599627371713'
+and name = 'PMR_FR_Postpay_GCB_VAT_applicable'; -- value for the same position
+select * from cs_deposit where periodseq = '2533274790396634' and payeeseq = '4503599627371713'
+and name = 'DR_FR_Postpay_GCB_VAT'; --VAT applied to measurement value
+select * from cs_payment where periodseq = '2533274790396634' and payeeseq = '4503599627371713';
+
+ 
+
+select * from tefaext.tefa_rpt_detail where periodseq = '2533274790396634';
+select * from tefaext.tefa_rpt_payeea;
+select * from tefaext.tefa_rpt_sbi;
+select * from tefaext.tefa_rpt_statement;
+select * from tefaext.tefa_rpt_payfile;
+select * from tefaext.tefa_rpt_gl_credit;
+select * from tefaext.tefa_rpt_monthly_credit;
+
+ 
+
+select * from tefaext.tefa_rpt_detail where periodseq = '2533274790396634';--TEFA_SP_DETAIL_WRITE
+select * from tefaext.tefa_rpt_payeea;--payee data
+select * from tefaext.tefa_rpt_sbi;
+select * from tefaext.tefa_rpt_statement;
+select * from tefaext.tefa_rpt_payfile;
+select * from tefaext.tefa_rpt_gl_credit;--TEFA_SP_CREDIT_DEPOSIT_WRITE
+select * from tefaext.tefa_rpt_monthly_credit;
+
+ 
+
+TF_00 - TEFA_SP_RUNALL
+TF_01 - TEFA_SP_TRACE_BACK_DETAIL
+TF_02 - TEFA_SP_DETAIL_WRITE
+TF_03 - TEFA_SP_CREDIT_DEPOSIT_WRITE
+TF_13 - TEFA_SP_MONTHLY_CREDIT_EXTRACT
+
+
+A1 Comms limited - a1
+Active business comm - smb
+Comm sense
+4L4684 - FRA
+Talk Talk - ttk
+MOBILE PHONE DIRECT - mpd
+
+[5/18 10:37 PM] G K, Praveen
+
+select count(*),EARNINGGROUPID from cs_deposit@tefaprd_tc where periodseq = '2533274790396633'
+
+and PIPELINERUNDATE >= '18/05/2023' group by EARNINGGROUPID;
+
+[5/22 1:04 PM] G K, Praveen
+
+track_usi_sim_swap_ace_202305211_20230521.dat.gz.pgp
+track_usi_renumber_ace_202305211_20230521.dat.gz.pgp
+track_usi_ace_202305211_20230521.dat.gz.pgp
+o2reconciliationreport230521.csv.pgp
+o2commissions_dispatch_rep21052023.csv.pgp
+edh_contract_start_end_date_daily_20230521162758.dat.gz.pgp
+edh_consumer_products_20230521162800.dat.gz.pgp
+edh_consumer_postpay_voice_premium_sms_20230521162747.dat.gz.pgp
+edh_consumer_postpay_revenue_20230521162754.dat.gz.pgp
+edh_consumer_orders_20230521162742.dat.gz.pgp
+edh_consumer_credit_agreement_20230521162744.dat.gz.pgp
+edh_clickandcollect_for_franchisees_20230521162753.dat.gz.pgp
+edh_Gross_Connection_Bonus_Commissions_20230521162741.dat.gz.pgp
+ace_imei_usage_20230520.dat.z.pgp
+TEDS_SMP_RECHARGE_20230521.csv.pgp
+TEDS_RC_HANDSET_UPGRADE_20230521.csv.pgp
+TEDS_PREPAY_ACTIVATION_ADJUSTMENT_20230521.csv.pgp
+TEDS_DONGLE_BOLTON_PURCHASED_20230521.csv.pgp
+TEDS_DONGLE_ACTIVATIONS_20230521.csv.pgp
+RET215_O2_UK_Retail_Tablet_Sales_Report_2023-05-21-14-05-00.dat.pgp
+RET105b_O2_UK_Retail_Daily_Upgrade_PrePay_Connections_Report_Commissions_2023-05-21-14-30-13.xls.pgp
+RET103b_O2_UK_Retail_Daily_New_PrePay_Connections_Report_Commissions_2023-05-21-14-30-13.xls.pgp
+RET101a_O2_UK_Retail_Daily_Upgrade_Post_Pay_Connections_Report_Commissions_2023-05-21-14-05-00.dat.pgp
+RET099a_O2_UK_Retail_Daily_New_Post_Pay_Connections_Report_Commissions_2023-05-21-14-05-00.dat.pgp
+RET020b_O2_UK_Retail_Daily_Discount_Analysis_Report_Commissions_2023-05-21-14-05-00.dat.pgp
+OD268_CCA_ACTIVITY_20230521051003.dat.gz
+OD198_GCB_Commissions_20230521021514.csv.pgp
+OD195_CUK_REVENUE_DETAIL_20230521.csv.gz.pgp
+OD136_Contract_End_Date_Daily_Report_20230521.csv.pgp
+DISE_TARIFF_CHANGES_20230521_01.DAT.pgp
+DISE_SERVICES_20230521_01.DAT.pgp
+DISE_REVENUE_DETAIL_20230521_01.DAT.pgp
+DISE_DAILY_UPGRADES_20230521_01.DAT.pgp
+DISE_CONTRACT_CHANGES_20230521_01.DAT.pgp
+DISE_CONNECTIONS_20230521_01.DAT.pgp
+D00428_DISE_CONNECTIONS_20230521_01.dat.pgp
+CUK_REVENUE_VOICEANDPREMSMS_20230521025041.dat.gz.pgp
+BR123_v2_Daily_Orders-20230521.csv.pgp
+BR123_Daily_Products-20230521.csv.pgp
+
+for FILE_NAME in *OD268_CCA_ACTIVITY*; do gpg -r ACE_DI --output "edh_Gross_Connection_Bonus_Commissions_20230127212022.dat".gz.pgp --encrypt "edh_Gross_Connection_Bonus_Commissions_20230127212022.dat"; done
+
+[2/2 4:17 PM] G K, Praveen
+
+for FILE_NAME in *edh_Gross_Connection_Bonus_Commissions_20230127212022.dat*; do gpg -r ACE_DI --output "edh_Gross_Connection_Bonus_Commissions_20230127212022.dat".gz.pgp --encrypt "edh_Gross_Connection_Bonus_Commissions_20230127212022.dat"; done
+
+[2/2 4:17 PM] G K, Praveen
+
+G K, Praveen
+
+for FILE_NAME in *edh_Gross_Connection_Bonus_Commissions_20230127212022.dat*; do gpg -r ACE_DI --output "edh_Gross_Connection_Bonus_Commissions_20230127212022.dat".gz.pgp --encrypt "edh_Gross_Connection_Bonus_Commissions_20230127212022.dat"; done
+
+en and dy
+
+[2/2 5:02 PM] G K, Praveen
+
+FR_deposit_DE
+
+[2/2 5:02 PM] G K, Praveen
+
+FRA_DEPOSIT_EXTRACT
+
+[2/2 5:27 PM] G K, Praveen
+
+oiJ3Eadi
+
+[2/2 5:28 PM] G K, Praveen
+
+PortalAdmin_TEFA
+
+O2 Calendar
+
+Sep-19
+
+PU1
+
+[2/2 5:28 PM] G K, Praveen
+
+o AncestorUserIdTenantId
+
+o Calendar Name
+
+o Period Name
+
+o ProcessingUnit Name
+
+Base_Alignment_202105_FRA_1
+
+Base_Alignment_202106_SMB_1
+
+select a.classifierid,c.name as cateogory_name from tcmp.cs_classifier@tefaprd_tc a, tcmp.cs_category_classifiers@tefaprd_tc b, tcmp.cs_category@tefaprd_tc c
+where
+a.classifierseq=b.classifierseq and
+b.categoryseq=c.ruleelementseq and
+a.removedate='01-JAN-2200' and a.islast=1 and
+b.removedate='01-JAN-2200' and b.islast=1 and
+c.removedate='01-JAN-2200' and c.islast=1 and a.classifierid in
+('4814');
+
+
+
+select a.classifierid,c.name as cateogory_name,d.salestransactionseq from tcmp.cs_classifier@tefauat_tc a, tcmp.cs_category_classifiers@tefauat_tc b, tcmp.cs_category@tefauat_tc c,
+tcmp.cs_salestransaction@tefauat_tc d where
+a.classifierseq=b.classifierseq and
+b.categoryseq=c.ruleelementseq and
+a.removedate='01-JAN-2200' and a.islast=1 and
+b.removedate='01-JAN-2200' and b.islast=1 and
+c.removedate='01-JAN-2200' and c.islast=1 and
+a.classifierid = d.productid and c.name ='Postpay Handset Only';
+
+SELECT cr.NAME,crt.credittypeid,ev.eventtypeid,COUNT(*),
+SUM(cr.VALUE) credit_value,SUM(tr.VALUE) transaction_value
+FROM cs_credit@tefaprd_tc cr,
+cs_credittype@tefaprd_tc crt,
+cs_salestransaction@tefaprd_tc tr,
+cs_eventtype@tefaprd_tc ev
+WHERE cr.periodseq = 2533274790396633
+and tr.processingunitseq = 38280596832649218
+and cr.processingunitseq = 38280596832649218
+and tr.compensationdate >= '01-April-2023' and tr.compensationdate<'01-May-2023'
+and crt.removedate = '01-JAN-2200'
+and ev.removedate = '01-JAN-2200'
+AND cr.credittypeseq = crt.datatypeseq
+AND cr.NAME LIKE 'CIR%'
+AND tr.salestransactionseq = cr.salestransactionseq
+AND tr.eventtypeseq = ev.datatypeseq and tr.tenantid='TEFA' and cr.tenantid='TEFA'
+GROUP BY cr.NAME,crt.credittypeid,ev.eventtypeid;
+
+SBI HANDOVER PACK
+
+[6/28 9:18 PM] G K, Praveen
+
+UPDATE   /* WO0000000001477-AO Batch Activities - June SBI*/ tefadi.ace_processing_date SET PROCESSING_DATE='26-JUN-2023';
+
+COMMIT;
+
+[6/28 9:18 PM] G K, Praveen
+
+G K, Praveen
+
+UPDATE   /* WO0000000001477-AO Batch Activities - June SBI*/ tefadi.ace_processing_date SET PROCESSING_DATE='26-JUN-2023';COMMIT;
+
+till which date we going run, that date we need to give in processing date -- daily batch
+
+[7/4 10:33 AM] G K, Praveen
+
+username- anandann
+
+password- R3m31?pRD23!
+
+[7/4 10:33 AM] G K, Praveen
+
+G K, Praveen
+
+username- anandann
+password- R3m31?pRD23!
+
+
+helix remedy
+
+callidus support
+
+S0024604318
+Newpwd@1
+
+ 
+
+https://accounts.sap.com/
+
+https://me.sap.com/servicessupport
+
+
+[5/15 10:48 AM] G K, Praveen
+
+simple we running 2 report in callidus, All detial statement nucleus and all detail statement edh nucleus at admin level\
+
+[5/15 10:48 AM] G K, Praveen
+
+G K, Praveen
+
+simple we running 2 report in callidus, All detial statement nucleus and all detail statement edh nucleus at admin level\
+
+nucleus report
+
+edh - 8
+cuk - 1
+dise - 6
+teds - 5
+od - 4
+o2 - 2
+track - 3
+Br - 3 
+ABS - 1
+RET - 6
+ACE - 1
+
+[3/13 4:57 PM] G K, Praveen
+
+--FEED-005
+
+select count(1),actual_bill_date,
+
+(sum(billed_total))/100 as REVENUE_VALUE from NSAHADEVAN.FL_TRK_EDH_POSTPAY_REVSMS where actual_bill_date
+
+like '%MAR-2023%' group by actual_bill_date order by actual_bill_date;
+
+ 
+
+--FEED 004
+
+select count(1),actual_bill_date,(Case when sub_type='USG' then 'USAGE' else 'NON-USAGE' end) 
+
+AS USG_IND,(sum(billed_total))/100 as REVENUE_VALUE from NSAHADEVAN.FL_TRK_EDH_POSTPAY_REV
+
+where actual_bill_date like '202303%'group by actual_bill_date,
+
+(Case when sub_type='USG' then 'USAGE' else 'NON-USAGE' end) order by 
+
+actual_bill_date,(Case when sub_type='USG' then 'USAGE' else 'NON-USAGE' end);
+
+ 
+
+--Feed 008
+
+select to_char(to_date(order_tstmp,'MM/DD/YY HH12:MI PM'),'DD/MM/YYYY') as EVENT_DATE,
+
+sum(CASE WHEN UPPER(ORDER_TYPE)='NEW ACTIVATION' THEN 1 else 0 end) as NEW_ACTIVATION,
+
+sum(CASE WHEN UPPER(ORDER_TYPE)='RESIGN' THEN 1 else 0 end) as RESIGN,sum(CASE WHEN UPPER(ORDER_TYPE)='REPLACEMENT' THEN 1 else 0 end) as 
+
+REPLACEMENT,sum(CASE WHEN UPPER(ORDER_TYPE)='RETURN' THEN 1 else 0 end) as "RETURN" from 
+
+(select * from NSAHADEVAN.FL_TRK_EDH_CONSU_ORDERS where order_tstmp like '03/%/23%')group by 
+
+to_char(to_date(order_tstmp,'MM/DD/YY HH12:MI PM'),'DD/MM/YYYY')order by to_char
+
+(to_date(order_tstmp,'MM/DD/YY HH12:MI PM'),'DD/MM/YYYY'); 
+
+--Feed 007 
+
+ 
+
+select to_char(to_date(transaction_date,'DD/MM/YYYY HH24:MI:SS'),'DD/MM/YYYY') as EVENT_DATE,
+
+sum(CASE WHEN UPPER(TRANSACTION_TYPE) IN('ESD','ESO','ESQ') THEN 1 else 0 end) as DEACTIVATION,
+
+sum(CASE WHEN UPPER(TRANSACTION_TYPE)='ESA' THEN 1 else 0 end) as NEW_ACTIVATION from 
+
+(select * from NSAHADEVAN.FL_TRK_EDH_CONN_BONUS  where transaction_date like '%/03/2023%')
+
+group by to_char(to_date(transaction_date,'DD/MM/YYYY HH24:MI:SS'),'DD/MM/YYYY')
+
+order by to_char(to_date(transaction_date,'DD/MM/YYYY HH24:MI:SS'),'DD/MM/YYYY');
+
+[3/13 4:59 PM] G K, Praveen
+
+7,8, and 9 th file we need to load to ACQ
+
+[3/13 4:59 PM] G K, Praveen
+
+till DL it already loaded
+
+[3/14 12:33 PM] G K, Praveen
+
+https://ts.accenture.com/sites/EDH-ACEFeedValidation/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=BVoYGL&cid=caaead1c%2Dee0c%2D4754%2Db590%2D04eac593d88f&RootFolder=%2Fsites%2FEDH%2DACEFeedValidation%2FShared%20Documents%2FGeneral&FolderCTID=0x0120000EC65ECEF66A2B4EA0365551D0FF551F
+
+[3/14 5:47 PM] G K, Praveen
+
+[3:13 PM] Murugesan, Dhivya Bharathi
+
+gunzip edh*
+
+[3/14 9:16 PM] G K, Praveen
+
+Compensate & Pay – select 1st 4 option(by default it will be selected)
+
+Update Analytics – In queue
+
+TF_00 – In queue
+
+TF_01 – In queue
+
+TF_02 – In queue
+
+All detail Statements - In queue
+
+DTL CPW P4U - In queue
+
+ 
+
+1 step  - Run a compensation calculation for all sales deals
+
+2 step  - select 1st 4 options
+
+ 
+
+ 
+
+--self build invoice and final statement(for all pipeline)
+
+ 
+
+
+
+4 usual reports(for pipeline 2).
+
+[3/17 10:38 AM] G K, Praveen
+
+Hii
+
+[3/17 10:46 AM] G K, Praveen
+
+hi
+
+[3/22 11:24 AM] G K, Praveen
+
+select * from ace_di_error where source_name = 'edh_consumer_orders_20230317180035.dat';
+
+ 
+
+select * from DL_EDH_CONSUMER_ORDERS where oid ='3166163768325826359';
+
+ 
+
+select * from DL_EDH_GCB_COMMISSIONS where ORDER_NUMBER='NC3498882';
+
+
+NSAHADEVAN.FL_TRK_EDH_POSTPAY_REV
+
+NSAHADEVAN.FL_TRK_EDH_POSTPAY_REVSMS
+
+NSAHADEVAN.FL_TRK_EDH_CONTRACT
+
+NSAHADEVAN.FL_TRK_EDH_CONN_BONUS
+
+NSAHADEVAN.FL_TRK_EDH_CONSU_ORDERS
+
+NSAHADEVAN.FL_TRK_EDH_CCA_CRED
+
+NSAHADEVAN.FL_TRK_EDH_CONSU_PRDT
+
+Gl Report zip :zip -P Jan2023 GL_Full_Month_Jan_2023.zip ERROR_EMAIL_FILE.csv Ace_GL_Reports_Agg_GL_File.csv INTER_LEVEL_EXTRACT_yyyymmddhh24miss.csv Ace_GL_Reports_SAPBPC_File.csv
+
+SELECT ORDERID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,ORDER_NUMBER,'Hist_con' as tab,activity_cd,account_num,SUBSCRIPTION_NUM   FROM TEFADI.HIST_CONNECTION
+WHERE usi='25780768'
+UNION ALL
+SELECT NULL AS ORDER_ID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,ORDER_NUMBER,'acq_con' as tab,activity_cd,account_num,SUBSCRIPTION_NUM  FROM TEFADI.ACQ_CONNECTION
+WHERE usi='25780768'
+AND HIST_LOAD_FLAG=0
+UNION ALL
+SELECT NULL AS ORDER_ID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,IF_ORDER_NUMBER,'acq_res' as tab,activity_cd,account_num,SUBSCRIPTION_NUM  FROM TEFADI.ACQ_RESIGN
+WHERE usi='25780768'
+AND HIST_LOAD_FLAG=0
+UNION ALL
+SELECT ORDERID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,IF_ORDER_NUMBER,'hist_res' as tab,activity_cd,account_num,SUBSCRIPTION_NUM  FROM TEFADI.HIST_RESIGN
+WHERE usi='25780768'
+ORDER BY USI,TRANSACTION_DT ASC;
+
+
+
+SELECT ORDERID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,ORDER_NUMBER,'Hist_con' as tab,activity_cd,account_num,SUBSCRIPTION_NUM   FROM TEFADI.HIST_CONNECTION
+WHERE usi='25780768'
+UNION ALL
+SELECT NULL AS ORDER_ID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,ORDER_NUMBER,'acq_con' as tab,activity_cd,account_num,SUBSCRIPTION_NUM  FROM TEFADI.ACQ_CONNECTION
+WHERE usi='25780768'
+AND HIST_LOAD_FLAG=0
+UNION ALL
+SELECT NULL AS ORDER_ID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,IF_ORDER_NUMBER,'acq_res' as tab,activity_cd,account_num,SUBSCRIPTION_NUM  FROM TEFADI.ACQ_RESIGN
+WHERE usi='25780768'
+AND HIST_LOAD_FLAG=0
+UNION ALL
+SELECT ORDERID,USI,SOURCE_FILE_NAME,TRANSACTION_DT,EVENT_TYP,BASE_TYP,INITIAL_CONNECTION_MPN,CURRENT_MPN,IF_ORDER_NUMBER,'hist_res' as tab,activity_cd,account_num,SUBSCRIPTION_NUM  FROM TEFADI.HIST_RESIGN
+WHERE usi='25780768'
+ORDER BY USI,TRANSACTION_DT ASC;
+
+iad-app-infa-sbox-001
+IA_529_DISE_RESIGN_PROCESSING_UPDATE
+
+aceinfa
+Ohphee9i
+
+Delete and Insert in tefa_rpt_detail_advance
+
+--smb 54 more than prd
+--mpd 1 less in sit --- usi not in HIST_BASE_MOVE_MPD
+--ttk same
+--fra more
+--tsa less in sit
+--a1 3 less in sit --- usi not in HIST_BASE_MOVE_MPD
+
+
+--
+
+dump_ACQ_REVENUE_TEMP_DL_bkp
+
+and (SUB_TYPE in('ADJ','USG') and ID <> '15')
+and ((ID IN('1','14') AND SUB_TYPE<>'USG') OR (ID IN('16','17') AND SUB_TYPE<>'ADJ'))
+
+
+
+
+select * from period;
+update period set last_period='01-07-2023';
+select * from processing_date_control where status is null;
+
+
+NOT(ID IN ('1','14','15') AND SUB_TYPE='USG' OR ID IN ('15','16','17') AND SUB_TYPE='ADJ')
+
+
+--smb 54 more than prd
+--mpd 1 less in sit --- usi not in HIST_BASE_MOVE_MPD
+--ttk same
+--fra 23 more than prd
+--tsa less in sit --- older L5
+--a1 3 less in sit --- usi not in HIST_BASE_MOVE_MPD
+
+[6:53 PM] Murugesan, Dhivya Bharathi
+
+DL_RECYCLE
+
+[6:54 PM] Murugesan, Dhivya Bharathi
+
+DL_EDH_CONSUMER_REVENUE 
+
+DL_EDH_VOICEPREMSMS 
+
+DL_EDH_CCA 
+
+DL_EDH_GCB_COMMISSIONS 
+
+DL_EDH_CONSUMER_ORDERS 
+
+DL_EDH_CONSUMER_PRODUCTS 
+
+DL_EDH_CONTRACT
+
+DL_RECYCLE
+
+june
+
+--a1 6 less in sit
+--smb more than prd -153
+--mpd 7 less in sit
+--fra 35 more than prd
+--ttk same
+
+
+1)IA_484_Change to file format of WD2 feed 'hardware_cost_YYYYMMDD.csv'
+2)IA_475_Franchise £4 for logistic costs for Ship from warehouse sales (360).
+
+
+torex - 5
+edh - 4
+IBM - missing contract, 1
+FDH - 6
+
+
+Hi Team,
+
+We have not received the below mentioned at our end for 27th July.
+
+edh_nc_accessories_20230727.dat.gz.pgp
+
+ Could you please kindly check and transfer the file asap.
+
+Thanks,
+
+IA_491 Voice Accessories GCB Changes
+
+Currently a standard £2.50 payment is made to all the accessory events irrespective of the transaction value.
+Going forward £2.50 payment should be made only if the transaction value is greater than 0.
+Backup report should contain all the transactions while payments should only be made for transactions having value greater than 0.
+The change is applicable to only TSA channel.
+There will be no changes to Insurance and prepay GCB payment rules.
+
+
+INC000005970412-TSA Base Movement Report - Reporting Non Billed_Adhoc
+
+Before Code change Only ID('1','14','15')transaction is made to pass to All revenue Aggregation table from dl_edh_revenue_consumer,
+Going forward ID ('1','14','15') with sub type ='USG' and ID ('15','16','17') with sub type ='ADJ' transactions will not pass to 
+All revenue Aggregation table from dl_edh_revenue_consumer
+
+DL_EDH_REVENUE_CONSUMER
+
+
+ttk- same
+mpd- 7 less in sit
+ai - 6 less in sit
+smb - 150 more than prd
+tsa - fine
+fra - 41 more than prd
+
+report
+
+a1 -- 3782 - 3767 -- dif - 15
+ttk --18811 - 1311 -- dif -
+mpd -- 11432 -10395 -- dif - 1037
+smb -- 17211 - 17273 -- dif - 62 more
+fra -- 34900 - 32287 -- dif - 2613
+
+where usi in('-410518386',
+'-419000244',
+'-417992309',
+'-461805801',
+'-467495836');--temp_ia_498_before_run_test
+
+hist_connection_bckupbk
+
+
+
+
+
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=HIST_CCA_BASE_EVENTS.dmp logfile=logfile_HIST_CCA_BASE_EVENTS.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CCA_BASE_EVENTS
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.HIST_CCA_BASE_EVENTS TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CCA_BASE_EVENTS.dmp logfile=logfile_HIST_CCA_BASE_EVENTS
+
+
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=hist_cca_activity_202502_close.dmp logfile=logfile_hist_cca_activity_202502_close.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.hist_cca_activity_202502_close
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.hist_cca_activity_202502_close TABLE_EXISTS_ACTION=TRUNCATE dumpfile=hist_cca_activity_202502_close.dmp logfile=logfile_hist_cca_activity_202502_close.dmp REMAP_TABLE=tefadi.hist_cca_activity_202502_close:hist_cca_activity
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.hist_cca_activity_202502_close TABLE_EXISTS_ACTION=TRUNCATE dumpfile=hist_cca_activity_202502_close.dmp logfile=logfile_hist_cca_activity_202502_close.dmp REMAP_TABLE=tefadi.hist_cca_activity_202502_close:hist_cca_activity
+
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=acq_revenue_202502_close.dmp logfile=logfile_acq_revenue_202502_close.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.acq_revenue_202502_close
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.acq_revenue_202502_close TABLE_EXISTS_ACTION=TRUNCATE dumpfile=acq_revenue_202502_close.dmp logfile=logfile_acq_revenue_202502_close REMAP_TABLE=tefadi.acq_revenue_202502_close:acq_revenue
+
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=acq_revenue_temp_202502_close.dmp logfile=logfile_acq_revenue_temp_202502_close.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.acq_revenue_temp_202502_close
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.acq_revenue_temp_202502_close TABLE_EXISTS_ACTION=TRUNCATE dumpfile=acq_revenue_temp_202502_close.dmp logfile=logfile_acq_revenue_temp_202502_close REMAP_TABLE=tefadi.acq_revenue_temp_202502_close:acq_revenue_temp
+
+
+
+
+
+
+
+
+we added mobile number match 
+WE revert and UPDATING flag, and send to HIST by using seq IN clean up 
+
+IMPORT and EXPORT SIT
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_CONNECTION.dmp logfile=logfile_HIST_CONNECTION.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CONNECTION
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_CONNECTION TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CONNECTION.dmp logfile=logfile_HIST_CONNECTION.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_CONNECTION_202406_CLOSE.dmp logfile=logfile_HIST_CONNECTION_202406_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CONNECTION_202406_CLOSE
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_CONNECTION_202406_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CONNECTION_202406_CLOSE.dmp logfile=logfile_HIST_CONNECTION_202406_CLOSE.dmp REMAP_TABLE=tefadi.HIST_CONNECTION_202406_CLOSE:HIST_CONNECTION
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_RESIGN_202410_CLOSE.dmp logfile=logfile_HIST_RESIGN_202410_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_RESIGN_202410_CLOSE
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_RESIGN_202410_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_RESIGN_202410_CLOSE.dmp logfile=logfile_HIST_RESIGN_202410_CLOSE.dmp REMAP_TABLE=tefadi.HIST_RESIGN_202410_CLOSE:HIST_RESIGN
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_POSCONNECT_202406_CLOSE.dmp logfile=logfile_HIST_POSCONNECT_202406_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_POSCONNECT_202406_CLOSE
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_POSCONNECT_202406_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_POSCONNECT_202406_CLOSE.dmp logfile=logfile_HIST_POSCONNECT_202406_CLOSE.dmp REMAP_TABLE=tefadi.HIST_POSCONNECT_202406_CLOSE:HIST_POSCONNECT
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_POSRESIGN_202406_CLOSE.dmp logfile=logfile_HIST_POSRESIGN_202406_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_POSRESIGN_202406_CLOSE
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_POSRESIGN_202406_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_POSRESIGN_202406_CLOSE.dmp logfile=logfile_HIST_POSRESIGN_202406_CLOSE.dmp REMAP_TABLE=tefadi.HIST_POSRESIGN_202406_CLOSE:HIST_POSRESIGN
+
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_PARTNER_202410_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_PARTNER_202410_CLOSE.dmp logfile=logfile_HIST_PARTNER_202410_CLOSE.dmp REMAP_TABLE=tefadi.HIST_PARTNER_202410_CLOSE:HIST_PARTNER
+
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_PARTNER
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_PARTNER TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_PARTNER
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_PARTNER TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.dmp
+
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_USI TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_USI
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_USI TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.dmp
+ 
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_USI
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_USI TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=COMMISSIONABLE_EVENTS_MAR_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_MAR_C1.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.COMMISSIONABLE_EVENTS_MAR_C1
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=TEFADI.COMMISSIONABLE_EVENTS_MAR_C1 TABLE_EXISTS_ACTION=TRUNCATE dumpfile=COMMISSIONABLE_EVENTS_MAR_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_MAR_C1.dmp REMAP_TABLE=tefadi.COMMISSIONABLE_EVENTS_MAR_C1:COMMISSIONABLE_EVENTS
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_CONNECTION.dmp logfile=logfile_HIST_CONNECTION.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CONNECTION
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_CONNECTION TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CONNECTION.dmp logfile=logfile_HIST_CONNECTION.dmp
+
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=COMMISSIONABLE_EVENTS_NOV_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_NOV_C1.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.COMMISSIONABLE_EVENTS_NOV_C1
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=TEFADI.COMMISSIONABLE_EVENTS_JAN_C1 TABLE_EXISTS_ACTION=TRUNCATE dumpfile=COMMISSIONABLE_EVENTS_JAN_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_JAN_C1.dmp REMAP_TABLE=tefadi.COMMISSIONABLE_EVENTS_JAN_C1:COMMISSIONABLE_EVENTS
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=ACQ_REVENUE.dmp logfile=logfile_ACQ_REVENUE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.ACQ_REVENUE
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=TEFADI.ACQ_REVENUE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=ACQ_REVENUE.dmp logfile=logfile_ACQ_REVENUE.dmp
+
+Convert Value to String ( F_FR_Recovery_Amount_DISE * - 1 ) 
+If Then Else ( F_Period_Btw_Comp_AccDate = 0 , LT_FR_POSTPAY_RECOVERY_DEFAULT ( Transaction.Acct Date , <Classifier> ) , F_FR_POSTPAY_RECOVERY_DISE ) 
+
+
+
+dev
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_USI
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.HIST_USI TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_PARTNER
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.HIST_PARTNER TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=ACQ_CONNECTION.dmp logfile=logfile_ACQ_CONNECTION.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.ACQ_CONNECTION
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.ACQ_CONNECTION TABLE_EXISTS_ACTION=TRUNCATE dumpfile=ACQ_CONNECTION.dmp logfile=logfile_ACQ_CONNECTION.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=ACQ_RESIGN.dmp logfile=logfile_ACQ_RESIGN.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.ACQ_RESIGN
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.ACQ_RESIGN TABLE_EXISTS_ACTION=TRUNCATE dumpfile=ACQ_RESIGN.dmp logfile=logfile_ACQ_RESIGN.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=HIST_CONNECTION.dmp logfile=logfile_HIST_CONNECTION.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CONNECTION
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.HIST_CONNECTION TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CONNECTION.dmp logfile=logfile_HIST_CONNECTION.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=HIST_RESIGN.dmp logfile=logfile_HIST_RESIGN.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_RESIGN
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.HIST_RESIGN TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_RESIGN.dmp logfile=logfile_HIST_RESIGN.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=ACQ_TARIFFCHANGE_202407_CLOSE.dmp logfile=logfile_ACQ_TARIFFCHANGE_202407_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.ACQ_TARIFFCHANGE_202407_CLOSE
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.ACQ_TARIFFCHANGE_202407_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=ACQ_TARIFFCHANGE_202407_CLOSE.dmp logfile=logfile_ACQ_TARIFFCHANGE_202407_CLOSE.dmp REMAP_TABLE=tefadi.ACQ_TARIFFCHANGE_202407_CLOSE:ACQ_TARIFFCHANGE
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_PARTNER
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_PARTNER TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_PARTNER_202410_CLOSE.dmp logfile=logfile_HIST_PARTNER_202410_CLOSE.dmp REMAP_TABLE=tefadi.HIST_PARTNER_202410_CLOSE:HIST_PARTNER
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=HIST_TARIFF.dmp logfile=logfile_HIST_TARIFF.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_TARIFF
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.HIST_TARIFF TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_TARIFF.dmp logfile=logfile_HIST_TARIFF.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=HIST_CONTRACT.dmp logfile=logfile_HIST_CONTRACT.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CONTRACT
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=tefadi.HIST_CONTRACT TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CONTRACT.dmp logfile=logfile_HIST_CONTRACT.dmp
+
+nohup expdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV dumpfile=COMMISSIONABLE_EVENTS_SEP_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_SEP_C1.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.COMMISSIONABLE_EVENTS_SEP_C1
+nohup impdp tefadi/Acc123@tefadev directory=DIR_NEW_DEV tables=TEFADI.COMMISSIONABLE_EVENTS_SEP_C1 TABLE_EXISTS_ACTION=TRUNCATE dumpfile=COMMISSIONABLE_EVENTS_SEP_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_SEP_C1.dmp REMAP_TABLE=tefadi.COMMISSIONABLE_EVENTS_SEP_C1:COMMISSIONABLE_EVENTS
+ 
+
+UAT
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=COMMISSIONABLE_EVENTS_OCT_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_OCT_C1.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.COMMISSIONABLE_EVENTS_OCT_C1
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=TEFADI.COMMISSIONABLE_EVENTS_OCT_C1 TABLE_EXISTS_ACTION=TRUNCATE dumpfile=COMMISSIONABLE_EVENTS_OCT_C1.dmp logfile=logfile_COMMISSIONABLE_EVENTS_OCT_C1.dmp REMAP_TABLE=tefadi.COMMISSIONABLE_EVENTS_OCT_C1:COMMISSIONABLE_EVENTS
+
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_RESIGN_202312_CLOSE.dmp logfile=logfile_HIST_RESIGN_202312_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_RESIGN_202312_CLOSE
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_RESIGN_202312_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_RESIGN_202312_CLOSE.dmp logfile=logfile_HIST_RESIGN_202312_CLOSE.dmp REMAP_TABLE=tefadi.HIST_RESIGN_202312_CLOSE:HIST_RESIGN
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_USI
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_USI TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_USI.dmp logfile=logfile_HIST_USI.dmp
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_ACCOUNTBILLEDUSI.dmp logfile=logfile_HIST_ACCOUNTBILLEDUSI.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_ACCOUNTBILLEDUSI
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_ACCOUNTBILLEDUSI TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_ACCOUNTBILLEDUSI.dmp logfile=logfile_HIST_ACCOUNTBILLEDUSI.dmp
+
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_RESIGN_202411_CLOSE.dmp logfile=logfile_HIST_RESIGN_202411_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_RESIGN_202411_CLOSE
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_RESIGN_202411_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_RESIGN_202411_CLOSE.dmp logfile=logfile_HIST_RESIGN_202411_CLOSE.dmp REMAP_TABLE=tefadi.HIST_RESIGN_202411_CLOSE:HIST_RESIGN
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_RESIGN_202411_CLOSE.dmp logfile=logfile_HIST_RESIGN_202411_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_RESIGN_202411_CLOSE
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_RESIGN_202411_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_RESIGN_202411_CLOSE.dmp logfile=logfile_HIST_RESIGN_202411_CLOSE.dmp REMAP_TABLE=tefadi.HIST_RESIGN_202411_CLOSE:HIST_RESIGN
+
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_CONNECTION_202411_CLOSE.dmp logfile=logfile_HIST_CONNECTION_202411_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CONNECTION_202411_CLOSE
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_CONNECTION_202411_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CONNECTION_202411_CLOSE.dmp logfile=logfile_HIST_CONNECTION_202411_CLOSE.dmp REMAP_TABLE=tefadi.HIST_CONNECTION_202411_CLOSE:HIST_CONNECTION
+
+nohup expdp tefadi/Acc123@tefauat directory=DATAFILES dumpfile=HIST_ACCOUNTBILLEDUSI_202406_CLOSE.dmp logfile=logfile_HIST_ACCOUNTBILLEDUSI_202406_CLOSE.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_ACCOUNTBILLEDUSI_202406_CLOSE
+nohup impdp tefadi/Acc123@tefauat directory=DATAFILES tables=tefadi.HIST_ACCOUNTBILLEDUSI_202406_CLOSE TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_ACCOUNTBILLEDUSI_202406_CLOSE.dmp logfile=logfile_HIST_ACCOUNTBILLEDUSI_202406_CLOSE.dmp REMAP_TABLE=tefadi.HIST_ACCOUNTBILLEDUSI_202406_CLOSE:HIST_ACCOUNTBILLEDUSI
+
+SIT
+
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR
+
+
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_PARTNER
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_PARTNER TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_PARTNER.dmp logfile=logfile_HIST_PARTNER.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_CONTRACT.dmp logfile=logfile_HIST_CONTRACT.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CONTRACT
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_CONTRACT TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CONTRACT.dmp logfile=logfile_HIST_CONTRACT.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_CCA_ACTIVITY.dmp logfile=logfile_HIST_CCA_ACTIVITY.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_CCA_ACTIVITY
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_CCA_ACTIVITY TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_CCA_ACTIVITY.dmp logfile=logfile_HIST_CCA_ACTIVITY.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_TARIFF.dmp logfile=logfile_HIST_TARIFF.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_TARIFF
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_TARIFF TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_TARIFF.dmp logfile=logfile_HIST_TARIFF.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=HIST_HANDSET.dmp logfile=logfile_HIST_HANDSET.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.HIST_HANDSET
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.HIST_HANDSET TABLE_EXISTS_ACTION=TRUNCATE dumpfile=HIST_HANDSET.dmp logfile=logfile_HIST_HANDSET.dmp
+
+nohup expdp tefadi/Acc123@tefasit directory=EXPDP_DIR dumpfile=hist_handset_manufacturer.dmp logfile=logfile_hist_handset_manufacturer.log NETWORK_LINK=TEFAPRD_DI tables=TEFADI.hist_handset_manufacturer
+nohup impdp tefadi/Acc123@tefasit directory=EXPDP_DIR tables=tefadi.hist_handset_manufacturer TABLE_EXISTS_ACTION=TRUNCATE dumpfile=hist_handset_manufacturer.dmp logfile=logfile_hist_handset_manufacturer.dmp
+
+
+TEFADI.BASE_RECONCILATION_A1
+
+TEFADI.BASE_RECONCILATION_FRA
+
+TEFADI.BASE_RECONCILATION_MPD
+
+TEFADI.BASE_RECONCILATION_SMB
+
+TEFADI.BASE_RECONCILATION_TTK
+
+Currently we are making code change to update the transaction date of CUK disconnection event received on the same as DISE Migration. Should we also make changes to update the transaction date of CUK disconnection if they are received on different day from that of DISE Migration event?
+
+
+for f in *edh*; do echo This is my Fathers world | gpg --batch --passphrase-fd 0 --decrypt --output ${f}.csv ${f}; done;
+gunzip edh*
+
+for f in *edh*; do echo This is my Fathers world | gpg --batch --passphrase-fd 0 --decrypt --output ${f}.csv ${f}; done;
+gunzip RET*
+
+for f in *TEDS*; do echo This is my Fathers world | gpg --batch --passphrase-fd 0 --decrypt --output ${f}.csv ${f}; done;
+gunzip edh*
+
+for f in *D00428*; do echo This is my Fathers world | gpg --batch --passphrase-fd 0 --decrypt --output ${f}.csv ${f}; done;
+gunzip edh*
+
+for f in *DISE*; do echo This is my Fathers world | gpg --batch --passphrase-fd 0 --decrypt --output ${f}.csv ${f}; done;
+gunzip DISE*
+
+for f in *edh*; do echo This is my Fathers world | gpg --batch --passphrase-fd 0 --decrypt --output ${f}.csv ${f}; done;
+
+gunzip edh_Gross_Connection_Bonus_Commissions_20230926150409*
+Hi Mark,
+
+Understanding from the requirement:
+
+currently in Ace end when customers are migrating from CUK to DISE, some are arriving as connections rather than migrations because of the disconnection event was received incorrectly just after the new connection event from DISE.Those connections event paying certain bonus to partners.CUK disconnection is received after DISE connection, the actual migration event which is not expected at ACE end. So we are expected to receive the CUK disconnection first.As per the requirement need to invalid those connection events until the disconnection event receive.
+
+Approach:
+
+At ACE end for migration the CUK DISCONNECTION event should be to receive before the DISE connection, but here we receiving following after DISE connection with some times gaps. 
+So We are making changes to the existing process to incorporate the CUK disconnection event to receive before the DISE connection by adding one new session with conditions to update CUK disconnection transaction date lesser one second of DISE connection transaction date.
+By updating transaction date DISE connections comes after the CUK DISCONNECTION and connection event change to migration by event valid process.
+
+Clarification:
+
+•	Do we only need to migrate the Activity_CD transaction with Internal Migration alone or can we migrate all transactions?
+•	Do we need to migrate transactions even if they arrived the following day or do we only need to migrate transactions with the same date?
+
+
+
+
+
+SELECT * FROM TEFADI.ACQ_CONNECTION
+WHERE TRANSACTION_DT >= TO_DATE('01/10/2023', 'DD/MM/YYYY') AND TRANSACTION_DT < TO_DATE('01/11/2023', 'DD/MM/YYYY')
+AND BASE_TYP = 'POSTPAY CONSUMER' AND EVENT_TYP = 'CONNECTION' AND SOURCE_FILE_NAME='edh_Gross_Connection_Bonus_Commissions_20231003183837.dat'
+AND HIST_LOAD_FLAG = 0
+AND USI_ENRICH_FG = 0;
+
+
+Informatica TC_ANALYTICS
+
+UN : aceinfa
+
+PW : Ohphee9i
+
+
+TRUNCATE TABLE ACE_DI_ERROR_HISTORY;
+TRUNCATE TABLE ACQ_HIST_SASTRUEUP;
+TRUNCATE TABLE CMR_IA154_HELD_HIST_FRA;
+TRUNCATE TABLE COMMISSIONABLE_EVENTS_HISTORY;
+TRUNCATE TABLE CONNECTION_ACQ_HIST_TEMP;
+TRUNCATE TABLE CPW_REV_MANUAL_BASE_HIST;
+TRUNCATE TABLE HIST_ACCESSORYREFUND;
+TRUNCATE TABLE HIST_ACCESSORYSALE;
+TRUNCATE TABLE HIST_ACCOUNTBILLEDUSI;
+TRUNCATE TABLE HIST_ACCOUNTUSI;
+TRUNCATE TABLE HIST_ADJUSTED;
+TRUNCATE TABLE HIST_AGE_CPW_RETENTION;
+TRUNCATE TABLE HIST_BASE_MOVE_A1;
+TRUNCATE TABLE HIST_BASE_MOVE_CPW;
+TRUNCATE TABLE HIST_BASE_MOVE_FRA;
+TRUNCATE TABLE HIST_BASE_MOVE_MPD;
+TRUNCATE TABLE HIST_BASE_MOVE_SMB;
+TRUNCATE TABLE HIST_BASE_MOVE_TTK;
+TRUNCATE TABLE HIST_BILL_SUBS_REPORT;
+TRUNCATE TABLE HIST_CCA_ACTIVITY;
+TRUNCATE TABLE HIST_CCA_ACTIVITY_TEMP;
+TRUNCATE TABLE HIST_CCA_BASE_EVENTS;
+TRUNCATE TABLE HIST_CHANNEL_COMMERCIAL;
+TRUNCATE TABLE HIST_CHANNEL_HIERARCHY;
+TRUNCATE TABLE HIST_CHANNEL_PAYEE;
+TRUNCATE TABLE HIST_CHANNEL_STORE;
+TRUNCATE TABLE HIST_CHURN_BASE_IN_MONTH;
+TRUNCATE TABLE HIST_CHURN_BASE_PREV_MONTH;
+TRUNCATE TABLE HIST_CHURN_DISCON_IN_MONTH;
+TRUNCATE TABLE HIST_CHURN_DISCON_PREV_MONTH;
+TRUNCATE TABLE HIST_CHURN_REPORT;
+TRUNCATE TABLE HIST_CONN_TOPUP_PREPAY;
+TRUNCATE TABLE HIST_CONNECTION;
+TRUNCATE TABLE HIST_CONNECTION_CPW_PREPAY;
+TRUNCATE TABLE HIST_CONNECTION_TELESALES;
+TRUNCATE TABLE HIST_CONTRACT;
+TRUNCATE TABLE HIST_CONTRACT_CONN;
+TRUNCATE TABLE HIST_CONTRACT_REVN;
+TRUNCATE TABLE HIST_CONTRACT_TEMP;
+TRUNCATE TABLE HIST_CONTRACT_TEMP_REVN;
+TRUNCATE TABLE HIST_CPW_BASE;
+TRUNCATE TABLE HIST_CPW_BASE_TEMP;
+TRUNCATE TABLE HIST_CPW_FRIENDS_FAMILY;
+TRUNCATE TABLE HIST_CPW_RETENTION_BONUS_BASE;
+TRUNCATE TABLE HIST_CUK_BANDING;
+TRUNCATE TABLE HIST_CUK_DEACTIVATION_RSN;
+TRUNCATE TABLE HIST_CUK_TARIFFCHANGE;
+TRUNCATE TABLE HIST_DISCONNECTIONS_REPORT;
+TRUNCATE TABLE HIST_DISE_ADVANCE_PAID;
+TRUNCATE TABLE HIST_DISE_DISCONNECTED_RSN;
+TRUNCATE TABLE HIST_DISE_UPGRADE;
+TRUNCATE TABLE HIST_FEATUREGROUP;
+TRUNCATE TABLE HIST_FIXEDLINE;
+TRUNCATE TABLE HIST_FRA_CLICKCOLLECT;
+TRUNCATE TABLE HIST_FRA_PAYMENT;
+TRUNCATE TABLE HIST_FRAUD;
+TRUNCATE TABLE HIST_HANDSET;
+TRUNCATE TABLE HIST_HANDSET_CP_PATCH;
+TRUNCATE TABLE HIST_HANDSET_MANUFACTURER;
+TRUNCATE TABLE HIST_HANDSET_TEMP;
+TRUNCATE TABLE HIST_HARDWARECOST;
+TRUNCATE TABLE HIST_HARDWARECOST_TEMP;
+TRUNCATE TABLE HIST_HARDWARECOST_VERSION_TEMP;
+TRUNCATE TABLE HIST_IMEI;
+TRUNCATE TABLE HIST_INSURANCE_BILLING;
+TRUNCATE TABLE HIST_INSURANCE_PREMTAX;
+TRUNCATE TABLE HIST_INSURANCE_PREMTAX_TEMP;
+TRUNCATE TABLE HIST_ISDN_NETCOUNT;
+TRUNCATE TABLE HIST_LIFECYCLEEVENT;
+TRUNCATE TABLE HIST_M4M_LOYALTY_BONUS;
+TRUNCATE TABLE HIST_M4M_TRUE_UP;
+TRUNCATE TABLE HIST_MANUAL_PAYMENT_REPORT;
+TRUNCATE TABLE HIST_MNA_HEAT_MAP_REPORT;
+TRUNCATE TABLE HIST_PAID_REV_SHARE;
+TRUNCATE TABLE HIST_PAIDCREDIT;
+TRUNCATE TABLE HIST_PAIDCREDIT_COMPRESSED;
+TRUNCATE TABLE HIST_PARTNER;
+TRUNCATE TABLE HIST_PARTNER_TELESALES;
+TRUNCATE TABLE HIST_PARTNER_TEMP;
+TRUNCATE TABLE HIST_PARTNER_TSA_TEMP;
+TRUNCATE TABLE HIST_PARTNERADJUSTMENT;
+TRUNCATE TABLE HIST_PARTNERCLAIM;
+TRUNCATE TABLE HIST_POSCONNECT;
+TRUNCATE TABLE HIST_POSCONNECT_VALID;
+TRUNCATE TABLE HIST_POSRESIGN;
+TRUNCATE TABLE HIST_POSRESIGN_VALID;
+TRUNCATE TABLE HIST_POSTPAY_SMB_PARTNER;
+TRUNCATE TABLE HIST_PRODUCT;
+TRUNCATE TABLE HIST_PRODUCTTYPE;
+TRUNCATE TABLE HIST_RECON_BASE_A1;
+TRUNCATE TABLE HIST_RECON_BASE_CPW;
+TRUNCATE TABLE HIST_RECON_BASE_FRA;
+TRUNCATE TABLE HIST_RECON_BASE_MPD;
+TRUNCATE TABLE HIST_RECON_BASE_SMB;
+TRUNCATE TABLE HIST_RECON_BASE_TTK;
+TRUNCATE TABLE HIST_RECON_BUILD;
+TRUNCATE TABLE HIST_RECON_DELTA;
+TRUNCATE TABLE HIST_RECONNECTIONS_REPORT;
+TRUNCATE TABLE HIST_REDEEM;
+TRUNCATE TABLE HIST_RENUMBER;
+TRUNCATE TABLE HIST_RENUMBER_ERROR;
+TRUNCATE TABLE HIST_REPORT_MAPPING;
+TRUNCATE TABLE HIST_RESIGN;
+TRUNCATE TABLE HIST_RESIGN_TELESALES;
+TRUNCATE TABLE HIST_RESUBMITCREDIT;
+TRUNCATE TABLE HIST_RESUBMITCREDIT_DUP_REC;
+TRUNCATE TABLE HIST_RETURN;
+TRUNCATE TABLE HIST_REV_ARCHIVE_COMPRESSED;
+TRUNCATE TABLE HIST_REVENUE;
+TRUNCATE TABLE HIST_REVENUE_ARCHIVE;
+TRUNCATE TABLE HIST_REVENUE_FG;
+TRUNCATE TABLE HIST_REVENUE_TEMP;
+TRUNCATE TABLE HIST_SASTRUEUP;
+TRUNCATE TABLE HIST_SHIPMENT;
+TRUNCATE TABLE HIST_SHIPMENT_TEMP;
+TRUNCATE TABLE HIST_SIMSWAP;
+TRUNCATE TABLE HIST_SIMSWAP_ERROR;
+TRUNCATE TABLE HIST_SMB_PROMO_TARIFF;
+TRUNCATE TABLE HIST_SMEREFERRAL;
+TRUNCATE TABLE HIST_SPINNER_DTL;
+TRUNCATE TABLE HIST_SPINNER_RPT;
+TRUNCATE TABLE HIST_SUBS_VALUE_REPORT;
+TRUNCATE TABLE HIST_SWEEPER_DISCOUNTS;
+TRUNCATE TABLE HIST_SWEEPER_DISCOUNTS_TEMP;
+TRUNCATE TABLE HIST_TARIFF;
+TRUNCATE TABLE HIST_TARIFF_TEMP;
+TRUNCATE TABLE HIST_TEDS_BASEIMPACT;
+TRUNCATE TABLE HIST_TEDS_TRANSACTIONDETAIL;
+TRUNCATE TABLE HIST_TELESALE_REF_DATA_TEMP;
+TRUNCATE TABLE HIST_TELESALE_REFERENCE_DATA;
+TRUNCATE TABLE HIST_TELESALES_EVENTS;
+TRUNCATE TABLE HIST_TOPUP;
+TRUNCATE TABLE HIST_TOPUPCOUNTER;
+TRUNCATE TABLE HIST_USI;
+TRUNCATE TABLE HIST_USI_BEFORE_FDH_DUMP;
+TRUNCATE TABLE HIST_USI_DEL_VERSIONS;
+TRUNCATE TABLE HIST_USI_ERROR;
+TRUNCATE TABLE HIST_USI_PROCESS;
+TRUNCATE TABLE HIST_VAS;
+TRUNCATE TABLE HIST_VOL_BON_ASSURANCE_LT_TXN;
+TRUNCATE TABLE HIST_VOLUME_BONUS;
+TRUNCATE TABLE HIST_VOLUME_BONUS_ASSURANCE;
+TRUNCATE TABLE LAST_HISTORY_LOAD;
+TRUNCATE TABLE TEMP_HIST_CHANNEL_HIERARCHY;
+TRUNCATE TABLE TEMP_HIST_REVENUE_TEMP;
+TRUNCATE TABLE HIST_CUK_DETAILEDUSAGE_ID;
+
+LT_SMB_REVENUE_SHARE_OLD_COMMERCIALS
+LT_SMB_REVENUE_SHARE_FEAT_008
+37527
+
+ "2023 Q2 Small Biz SIMO Unlimited 24M £24"
+
+The imported Product, 5863 has an invalid Category name	Validation stage	Error	12/12/2024, 3:13 AM
+70035	The imported Product, 5830 has an invalid Category name	Validation stage	Error	12/12/2024, 3:13 AM
+70035	The imported Product, 38841 has an invalid Category name	Validation stage	Error	12/12/2024, 3:13 AM
+70037	The imported Product, 5863 has a parent that does not exist for its entire Effective Date range	Validation stage	Error	12/12/2024, 3:13 AM
+70037	The imported Product, 5830 has a parent that does not exist for its entire Effective Date range	Validation stage	Error	12/12/2024, 3:13 AM
+70037	The imported Product, 38841 has a parent that does not exist for its entire Effective Date range	Validation stage	Error	12/12/2024, 3:13 AM
+70040	The imported Product, 5863 has incompatible Business Unit with its associated Category	Validation stage	Error	12/12/2024, 3:13 AM
+70040	The imported Product, 5830 has incompatible Business Unit with its associated Category	Validation stage	Error	12/12/2024, 3:13 AM
+70040	The imported Product, 38841 has incompatible Business Unit with its associated Category
+30691	TCMP_30691:E: Lookup Table named "LT_SMB_REVENUE_SHARE_FEAT_008" in the time period Jan 1, 2012-End of time refers to Classifier named "18,491" from Category Hierarchy named "Product Tree" which does not exist.	XML Import stage	Error	12/12/2024, 1:32 AM
+40134	Fatal error in runStage! Cause: Error: Failed in processing XML File with exit code 1! Please check the log files for detail.. Please check the log file for detail.
+
+
+Error Code	Errors	Stage	Severity	Logged at
+70079	The imported Product, 18491, has an invalid Category Hierarchy name
+18491
+
+select * from tefadi.hist_product;
+select * from tefadi.hist_producttype;
+select * from tefadi.hist_channel_hierarchy; ---SMB
+select * from tefadi.hist_channel_commercial;---SMB
+select * from tefadi.hist_channel_payee;---SMB
+select * from tefadi.hist_channel_store;---SMB
+
+truncate table tefadi.hist_product;
+truncate table tefadi.hist_producttype;
+truncate table tefadi.hist_channel_hierarchy;
+truncate table tefadi.hist_channel_commercial;
+truncate table tefadi.hist_channel_payee;
+truncate table tefadi.hist_channel_store;
+
+insert into hist_channel_payee(select * from tefadi.hist_channel_payee@tefaprd_di);
+commit;
+insert into hist_channel_commercial(select * from tefadi.hist_channel_commercial@tefaprd_di);
+commit;
+insert into hist_channel_store(select * from tefadi.hist_channel_store@tefaprd_di);
+commit;
+insert into hist_channel_hierarchy(select * from tefadi.hist_channel_hierarchy@tefaprd_di);
+commit;
+insert into hist_product(select * from tefadi.hist_product@tefaprd_di);
+commit;
+insert into hist_producttype(select * from tefadi.hist_producttype@tefaprd_di);
+commit;
+
+
+
+
+
+
+select * from NONCOMMISSIONABLE_FILE;
+select * from NONCOMMISSIONABLE_ASSIGN;
+select * from REPORTATTRIBUTE_FILE;
+select * from COMMISSIONABLE_FILE;  
+select * from COMMISSIONABLE_ASSIGN;
+select * from COMMISSIONABLE_EVENTS;
+select * from EG_REVENUE;
+select * from HIST_REVENUE_TEMP;
+select * from TEMP_POSITION_FILE;
+select * from POSITION_FILE;
+select * from PRODUCTTYPE_FILE_TEMP;
+
+
+
+
+Before triggering table transaction we need to truncate and restore all above tables and below
+
+BEFORE STAGE WE NEED TO RUN BELOW 
+
+
+-------------
+select * from eg_lastextractiondate;
+
+delete from eg_lastextractiondate where is_last=0;
+
+update eg_lastextractiondate set last_extraction_dt='01-01-1900 00:00:00';
+
+commit;
+
+TRUNCATE TABLE TEMP_POSITION_FILE;
+TRUNCATE TABLE POSITION_FILE;
+TRUNCATE TABLE PRODUCTTYPE_FILE_TEMP;
+
+14355226043432395
+
+------------
+ed700e19-c6e7-4626-836a-d566281b8486_1
+C10385227
+
+------------------------------------------
+ select * from ace_processing_date;
+update ace_processing_date set PROCESSING_DATE='01-12-2021';
+commit;
+select * from period;
+update period set last_period='01-12-2021';
+select * from processing_date_control where status is null;
+
+1) Choose 'Run a pipeline' --> 'Run a Calculation' --> Select the period --> 'Reset' --> 'From classification and Forward'
+ 
+2) import data from stage --> Reset from validate (after choosing the period)
+
+Update TEFAEXT.TEFA_RPT_PAYFILE_CONTROL@tefauat_tc set status=0 where status=1;
+COMMIT;
+
+TRUNCATE TABLE NONCOMMISSIONABLE_FILE;
+TRUNCATE TABLE NONCOMMISSIONABLE_ASSIGN;
+TRUNCATE TABLE REPORTATTRIBUTE_FILE;
+TRUNCATE TABLE COMMISSIONABLE_FILE;  
+TRUNCATE TABLE COMMISSIONABLE_ASSIGN;
+TRUNCATE TABLE COMMISSIONABLE_EVENTS;
+TRUNCATE TABLE EG_REVENUE;
+TRUNCATE TABLE HIST_REVENUE_TEMP;
+TRUNCATE TABLE TEMP_POSITION_FILE;
+TRUNCATE TABLE POSITION_FILE;
+Truncate table PRODUCTTYPE_FILE_TEMP;
+
+COMMIT;
+
+select a.session_id,a.oracle_username, a.os_user_name, b.owner "OBJECT OWNER", b.object_name,b.object_type,a.locked_mode from
+(select object_id, SESSION_ID, ORACLE_USERNAME, OS_USER_NAME, LOCKED_MODE from v$locked_object) a,
+(select object_id, owner, object_name,object_type from dba_objects) b
+where a.object_id=b.object_id;
+
+SID serial
+ 
+ 
+  SELECT * FROM v$transaction
+WHERE ADDR IN (SELECT TADDR FROM v$session WHERE SID = 11);
+
+decryption task
+valid file movement to ace_valid_folder
+clean up
+ 
+ S0024604318
+Newpwd@1
+ 
+code sync from prd
+design minispec
+build ut documentation
+sit doucmentation
+uat execution
+uat response
+uploading updated design if any last minute change
+uploading doc to acc share point
+ 
+ 
+priority of a task- 
+		uat queries from business
+		uat execution- current month IA
+		previous month left overs
+		sit- SIT of already completed Build
+		build- new IAs
+pending task from previous month to be taken up first
+
+
+
+At ACE end for migration the CUK DISCONNECTION event should need to receive before the DISE connection, but here we receiving following some times gaps after DISE connection. 
+So We making changes to the existing process to incorporate the CUK disconnection event to receive before the DISE connection in event validation process.so We adding one new session with conditions to update CUK disconnection transaction date minus one second of DISE connection transaction date.By updating transaction date we make DISE connections as DISE migration by event validating.
+
+SELECT ALLOCATED_SPACE,FREE_SPACE,round(((ALLOCATED_SPACE-FREE_SPACE)/ALLOCATED_SPACE)*100) as utili
+FROM dba_temp_free_space;
+
+Import Order if new rule
+
+Fixed Value(All Effective versions) --> Lookup Table(All Effective versions) 1 3 3 --> 
+Variable(Current Effective version) --> Formula(Current Effective version) --> Rules(Current Effective version)
+
+
+
+I'll ask you some questions, provide me only the correct answers.
+
+( If Then Else ( Transaction.GA5:Activity Code = "FEAT_008" , Round ( Transaction.Value * LTV_SMB_POSTPAY_REVENUE_SHARE_FEAT_008 ( F_SMB_REVENUE_SHARE_BILLING_DATE_PARAMETER , <Classifier> , Transaction.GA23:Contract Status/PreEvent Date , <Classifier> , Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code ) , 2 ) , ( If Then Else ( ( Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code = "3L3218" Or Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code = "3L3220" ) , Round ( Transaction.Value * LTV_SMB_POSTPAY_REVENUE_SHARE ( Convert String to Date ( Transaction.GA19:Last Connection Type/PreContract Start Date ) , <Classifier> , Transaction.GA23:Contract Status/PreEvent Date , <Classifier> , Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code ) , 2 ) , Round ( Transaction.Value * LTV_SMB_REVENUE_SHARE_OLD_COMMERCIALS ( Convert String to Date ( Transaction.GA19:Last Connection Type/PreContract Start Date ) , <Classifier> , Transaction.GA23:Contract Status/PreEvent Date , <Classifier> , Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code ) , 2 ) ) ) ) ) * If Then Else ( F_Num_of_lines_check , 1 , -1 ) 
+
+If Then Else ( F_SMB_REVENUE_SHARE_CATEGORY_AND_VERSION_CHECK , Convert Number to Date ( 20,170,101 ) , F_SMB_REVSHARE_PREEVENT_DATE_1 )
+
+
+LTV_SMB_POSTPAY_REVENUE_SHARE_FEAT_008
+F_SMB_REVENUE_SHARE_BILLING_DATE_PARAMETER
+LTV_SMB_POSTPAY_REVENUE_SHARE
+
+-975638042-202409-296659367
+105690085-202409-296679141
+114199758-202409-296680852
+122023035-202409-296901855
+33459139-202409-296692382
+63668205-202409-296692303
+78592928-202409-296692305
+14355226376848465
+14355226383589999
+14355226383819016
+14355226384116843
+14355226385028126
+14355226386890518
+14355226386974626
+
+Aditya
+Sitportal@123
+ 
+Aadityan--dev
+Mercury@1
+ 
+Aadityan
+Newlogin@2
+ 
+S0024604318
+Carrotpotato@2
+
+Meet deliverable requirements/specific targets
+
+Understand and own the responsibility of deliverables for your module/team
+On time delivery of all deliverables.
+Delivery Timeline / On time delivery as derived from project schedules to meet challenging timelines -willingness to stretch for helping other team members.
+
+IIF(o_RTR_TRANSACTIONFILE=0 OR o_RTR_ACUISITIONFILE=0 OR o_RTR_LASTINTERACTIONFILE=0 OR o_RTR_RESUBMITTING_PARTNER_L5=0 OR o_RTR_REFERENCE_FILE=0,false,true))
+
+
+( Postpay All in:Product Tree Or Postpay Voice:Product Tree ) And Not Postpay MBB:Product Tree And Not Postpay Fixed Line:Product Tree And Not Postpay SIMOnly:Product Tree
+
+Transaction.Num Units * Round ( If Then Else ( F_SMB_EXCEPTION_ACCOUNT , LTV_SMB_EXCEPTION_ACCOUNT_BONUS ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA6:Account Num ) , LTV_SMB_CSI_L4_RATES ( Transaction.Acct Date , Fiscal Date ( quarter , -1 , Start Date ) , Transaction.GA2:Last Interaction Partner L4 ) ) , 2 ) 
+
+LTV_SMB_EXCEPTION_ACCOUNTS ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA6:Account Num ) = 1 
+
+
+We have completed the testing for IA_513_SMB_CSI Bonus Change for Migration Events with the October Date Set.
+
+Kindly review and let us know if you happy with the result
+
+
+
+Thanks,
+
+Praveen
+
+hilton 
+radisson blu
+westin
+
+513
+515
+506
+455
+467
+497
+483
+
+Database TC_PRD
+UN:tefaread
+PW ; et9TheiB
+
+CRQ000001526993
+
+
+case when commissiongroup ='Manual Adjustments' then ACQ_DETAILDEPOSIT_SEQ else 0 end
+
+
+Accenture Celebrates Excellence (ACE) award is a quarterly award issued by the Accenture India Delivery Center for Technology (IDC), for displaying high performance and Accenture's core values
+
+Orders of parameter
+ 
+AncestorUserIdTenantId
+
+Calendar Name
+
+Period Name
+
+ProcessingUnit Name
+
+P2009073734
+
+Database TC_DEV
+
+UN: tefaext
+
+PW:oiJ3Eadi
+
+hostname - oracle-tefa-dev.east.smf.uc.int
+ 
+Database TC_UAT
+
+UN:tefaext
+
+PW:neiDie9u
+
+hostname - oracle-tefa-uat.east.smf.uc.int
+ 
+Database TC_SIT
+
+UN:tefaext
+
+PW:phuH7Hie
+ 
+Database TC_PRD
+
+UN:tefaread
+
+PW ; et9TheiB
+ oracle-tefa-sit.east.smf.uc.int
+ 1521
+ tefasit
+Database DEV_DI
+
+hostname : 10.118.114.84
+
+UAT : 10.118.114.21
+
+SIT : 
+
+AncestorUserIdTenantId
+
+o Calendar Name
+
+o Period Name
+
+o ProcessingUnit Name
+
+[5:49 PM] Sahadevan, Nivedha
+PortalAdmin_TEFA
+
+O2 Calendar
+
+March 2023
+
+PU1
+ 
+
+GRANT ALL ON TEFA_SP_FTU_A1COMMS_READ to tefaread, tcmp, tefa;
+
+edh_consumer_orders_20231112151104.dat
+edh_consumer_orders_20231115165144.dat
+edh_consumer_orders_20231117152113.dat
+edh_consumer_orders_20231122151719.dat
+edh_consumer_orders_20231125150812.dat
+edh_Gross_Connection_Bonus_Commissions_20231110162254.dat
+edh_Gross_Connection_Bonus_Commissions_20231115165151.dat
+edh_Gross_Connection_Bonus_Commissions_20231118150425.dat
+edh_Gross_Connection_Bonus_Commissions_20231119150511.dat
+edh_Gross_Connection_Bonus_Commissions_20231124152855.dat
+
+
+o_VALIDATION_FLAG='0' or o_FORMAT_FLAG='0'
+
+o_VALIDATION_FLAG
+IIF(ISNULL(v_MANDATORY_CHECK) ,1,0)
+
+IIF(REG_MATCH(TRANSACTION_DATE,'(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)')=0,'TRANSACTION_DATE',
+IIF(IS_DATE(TRANSACTION_DATE,'DD/MM/YYYY hh24:mi:ss')=0,'TRANSACTION_DATE',NULL))
+
+TO_DATE(PROCESSED_WHEN,'DD/MM/YYYY hh24:mi:ss')
+
+DATE_CHECK_1_ERR_MESSAGE
+DATE_CHECK_1_CODE
+
+
+manual adjustment --> belongs to statement ah irundha gb1 = 0
+
+
+DATE_CHECK_1_FIELD_NAME
+DATE_CHECK_1_VALUES
+
+C:\app\user\product\11.2.0\dbhome_1\NETWORK\ADMIN
+
+'%TF00_RUN_ALL%' -- sp run all
+'%TF01_TRACE_BACK%' --
+'%TF02_DETAIL_WRITE%' -- rpt detail
+'%TF03_GL_CREDIT%'
+'%TF04_CREDIT_EXTRACT%'
+'%TF06_MI_REPORT%'
+'%TF07_STATEMENT_VALIDATION%'
+'%TF08_GL_REVSHARE%'
+'%TF09_RECONNECTION_DISC_REPORT%'
+'%TF_10_CALLIDUS_REJECTION_REPORT%'
+'%TF11_REVENUE_FEATURE_REPORT%'
+'%TF12_DEPOSIT_EXTRACT_REPORT%'
+'%TF13_MONTHLY_CREDIT_EXTRACT%'
+
+IA_522_In_Month_Clawback_reporting_Fix
+
+clawback - resubmmit
+
+backtrack from from rpt_detail
+
+Calidus support Portal
+PW:SoWmI12345
+
+
+SAP
+dhivya.b.a.murugesan@accenture.com
+SoWmI12345
+
+[7:31 PM] Narasimha Bharathi, Aadityan
+S0024604318
+Carrotpotato@1
+
+
+LTV_SMB_POSTPAY_REVENUE_SHARE_FEAT_008
+LTV_SMB_POSTPAY_REVENUE_SHARE
+LTV_SMB_REVENUE_SHARE_OLD_COMMERCIALS
+LT_SMB_REVENUE_SHARE_CATEGORY_CHECK
+LT_SMB_PRODUCTS_WITH_PREEVENTDATE_1
+LT_SMB_REVENUE_SHARE_FEAT_008
+LT_SMB_REVENUE_SHARE_New
+LT_SMB_REVENUE_SHARE_OLD_COMMERCIALS
+F_SMB_REVENUE_SHARE_BILLING_DATE_PARAMETER
+F_SMB_REVENUE_SHARE_CATEGORY_AND_VERSION_CHECK
+F_SMB_REVSHARE_PREEVENT_DATE_1
+
+
+14151
+
+
+SOURCE
+ACQ_RESIGN
+
+TARGET 
+HIST_CONNECTION
+HIST_LIFE_CYCLE
+HIST_RESIGN
+
+MAPPING
+HIST_CONNECTION
+HIST_RESIGN
+
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' and c.event_typ in('CONNECTION','MIGRATION','RECONNECTION') 
+then nvl(c.processed_when,c.transaction_dt) else c.transaction_dt end) >=H.startdate
+
+--and nvl(c.processed_when,c.transaction_dt)< H.enddate
+--and (case when c.event_typ in('CONNECTION','MIGRATION','RECONNECTION') then c.processed_when else c.transaction_dt end) < H.enddate
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' and c.event_typ in('CONNECTION','MIGRATION','RECONNECTION') 
+then nvl(c.processed_when,c.transaction_dt) else c.transaction_dt end) < H.enddate
+
+
+
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' and c.event_typ in('RE-SIGN','RE-SIGN_CANCELLATION') 
+then nvl(c.processed_when,c.transaction_dt) else c.transaction_dt end) >=H.startdate
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' and c.event_typ in('RE-SIGN','RE-SIGN_CANCELLATION') 
+then nvl(c.processed_when,c.transaction_dt) else c.transaction_dt end) < H.enddate
+
+
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' AND c.event_typ in('RE-SIGN','RE-SIGN_CANCELLATION') then nvl(to_date(to_char(c.processed_when,'dd/mm/yyyy'),'dd/mm/yyyy'),to_date(to_char(c.transaction_dt,'dd/mm/yyyy'),'dd/mm/yyyy')) else to_date(to_char(c.transaction_dt,'dd/mm/yyyy'),'dd/mm/yyyy') end) >=to_date(to_char(h.startdate,'dd/mm/yyyy'),'dd/mm/yyyy')
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' AND c.event_typ in('RE-SIGN','RE-SIGN_CANCELLATION') then nvl(to_date(to_char(c.processed_when,'dd/mm/yyyy'),'dd/mm/yyyy'),to_date(to_char(c.transaction_dt,'dd/mm/yyyy'),'dd/mm/yyyy')) else to_date(to_char(c.transaction_dt,'dd/mm/yyyy'),'dd/mm/yyyy') end) < to_date(to_char(h.enddate,'dd/mm/yyyy'),'dd/mm/yyyy')
+
+
+
+
+and to_char(C.transaction_dt,'dd/mm/yyyy')=to_char(H.startdate,'dd/mm/yyyy')
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' then nvl(to_char(C.processed_when,'dd/mm/yyyy'),to_char(C.transaction_dt,'dd/mm/yyyy')) 
+else to_char(C.transaction_dt,'dd/mm/yyyy') =to_char(H.startdate,'dd/mm/yyyy')
+
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' then nvl(c.processed_when,c.transaction_dt) else c.transaction_dt end) >=H.startdate
+and (case when UPPER(C.SOURCE_FILE_NAME) LIKE '%EDH%' then nvl(c.processed_when,c.transaction_dt) else c.transaction_dt end) < H.enddate
+
+
+
+
+
+create table DL_EDH_CONSUMER_ORDERS_bckup as
+select * from DL_EDH_CONSUMER_ORDERS;
+drop table;
+create table DL_EDH_GCB_COMMISSIONS_bckup as
+select * from DL_EDH_GCB_COMMISSIONS;
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONTRACT_START_END_DATE_DAILY
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_ORDERS_Delta
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_GCB_COMMISSIONS
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_1
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Partner_Temp
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Partner
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Partner_Temp_sameday
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Partner_same_day
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Partner_Temp_CUK_48hour
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Partner_CUK_48hour
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract_Same_Day
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract_Three_Day
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract_Seven_Day
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Tariff
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Tariff_sameday
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Tariff_2day_buffer
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Product
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Product_FLEX_FRA
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Category
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_DI_Flag
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Insurance
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Update_Join_00_04
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Update_Join_05_09
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_handset_Revenue
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_CPW_BASE_REVENUE
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_CCA_Contract_Revenue_Pre_Feb2019
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_CCA_Contract_Revenue
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_hist_revenue
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventGeneration_AccountLevelRevenueApportionment0
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventGeneration_AccountLevelRevenueApportionment0_Hist_Accountusi_test
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Partner_Temp_account_level
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Partner_Account_level
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Partner_Temp_sameday_account_level
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Partner_sameday_Account_level
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Partner_HIST_REVENUE_TEMP_CUK_48hour
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Partner_CUK_48hour_account_level
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_hist_MPNEnrichment_Revenue
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_hist_MPNEnrichment_Revenue_nxt
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Contract_Hist_revenue_temp
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Contract_Hist_revenue_temp_same_day
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Contract_Hist_revenue_temp_threeday_buffer
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Revenue_Contract_Hist_revenue_temp_sevenday_buffer
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_tariff_HIST_REVENUE_TEMP
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_tariff_HIST_REVENUE_TEMP_sameday
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_tariff_HIST_REVENUE_TEMP_48hours
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_product_HIST_REVENUE_TEMP
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_Category_HIST_Revenue_TEMP
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_CPW_BASE_HIST_REVENUE_TEMP
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_CPW_LastInteractionDate_HIST_Revenue_TEMP
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_CCA_Contract_Revenue_Pre_Feb2019_Acc_Level
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_CCA_Contract_Revenue_Acc_level
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventEnrichment_handset_hist_Revenue_temp
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventGeneration_AccountLevelRevenueApportionment1_TEST
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventGeneration_AccountLevelRevenueApportionment2
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_revenue_EventGeneration.s_m_acq_EventGeneration_AccountLevelRevenueApportionment3
+
+
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_DiseConnections
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_DiseConnections
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_EventValidation.s_m_acq_EventValidation_Connection_Disconnection
+
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_HandOver_Pack s_m_All_Channel_Disconnections_Report
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_HandOver_Pack s_m_MPD_TSA_TTK_DISCONNECTION_REPORTS
+
+
+wklt_histload
+
+/apps/Callidus/tefa/datafiles/Praveen/PRD
+/apps/Callidus/tefa/datafiles/MPD_A1COMMS_TSA_DISCONNECTION_REPORT
+
+$PMTargetFileDir\
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u ARAVINDHRAJ -p ARAVINDHRAJ -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u ARAVINDHRAJ -p ARAVINDHRAJ -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract_Same_Day
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u ARAVINDHRAJ -p ARAVINDHRAJ -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract_Three_Day
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u ARAVINDHRAJ -p ARAVINDHRAJ -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Contract_Seven_Day
+
+m_acq_EventEnrichment_Credit_Connection
+m_acq_EventEnrichment_Credit_Resign
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Revenue_Category
+
+
+
+IIF(IIF(RETENTION_CHANNEL_GRP ='',ACQUISITION_CHANNEL_GRP,RETENTION_CHANNEL_GRP)='TSA',
+IIF(RETENTION_PRODUCT='',ACQUISITION_PRODUCT,RETENTION_PRODUCT),'')
+
+IIF(v_CURRENT_SERVICE_PRODUCT_ID <> '',1,0)
+
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventEnrichment_CUK_tariff_Resign
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_tariff
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig_hist
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_tariffchange_3_daybuffer_check
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_tariffchange_1_default_check
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_tariffchange_2_12hour_check
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_tariffchange_4_weekbuffer_check
+
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_ORDERS_Delta
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_GCB_COMMISSIONS
+
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventEnrichment_CUK_tariff_Resign
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_tariff
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig_hist
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u dmurugesan -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventEnrichment_CUK_tariff_Resign
+
+[1/2 7:26 PM] Murugesan, Dhivya Bharathi
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u dmurugesan -p Welcome123 -f ACE_DI -w wf_ace_di_histload wlkt_SubscriptionRefData.s_z_m_acq_usi_enrichment_CCA_ACTIVITY_1_samedaycheck
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u dmurugesan -p Welcome123 -f ACE_DI -w wf_ace_di_histload wlkt_SubscriptionRefData.s_z_m_acq_usi_enrichment_CCA_ACTIVITY_1_default_check
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u dmurugesan -p Welcome123 -f ACE_DI -w wf_ace_di_histload wlkt_SubscriptionRefData.s_z_m_acq_usi_enrichment_CCA_ACTIVITY_4_1day_check
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u dmurugesan -p Welcome123 -f ACE_DI -w wf_ace_di_histload wlkt_SubscriptionRefData.s_z_m_acq_usi_enrichment_CCA_ACTIVITY_4_1week_check
+ 
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_contract_RESIGN_1
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_contract_RESIGN
+ 
+ 
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_1
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_0
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_2
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_3
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_4
+
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_new_telesales_update.s_m_acq_EventTrigger_load_EDH_Telesales_Accessories
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_revenue_usi_agg.s_m_acq_EventEnrichment_FeatureGroup_Revenue
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_revenue_usi_agg.s_m_acq_EventEnrichment_FeatureGroup2_Revenue
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_revenue_usi_agg.s_m_acq_EventGeneration_MPNRevenueAggregation
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_revenue_usi_agg.s_m_acq_EventGeneration_MPNRevenueAggregation_1_2_3
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_GCB_COMMISSIONS
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONTRACT_START_END_DATE_DAILY
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CCA_ACTIVITY
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_ORDERS_Delta
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_PRODUCTS
+
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_ace_transactioninterface.s_m_ace_table_transactioninterface
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_ace_transactioninterface.s_m_ace_file_transactioninterface
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_ace_transactioninterface.s_m_ace_stage_transactioninterface
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_CallidusCreditProcessing
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_CreditProcessing
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Credit_Connection
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Credit_Resign
+s_m_histload_ResubmitCredit_Early_Resign_Clawbacks
+s_m_histload_ResubmitCredit
+full history
+Advance recovery --worklet
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_hist_connection
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_histload_connection_update
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_acq_EventGeneration.s_m_acq_EventGeneration_Resubmitting_Events
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_OnDemand wklt_acq_EventGeneration.s_m_acq_EventGeneration_Direct_Connection
+
+s_m_histload_ResubmitCredit_Early_Resign_Clawbacks
+
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_CallidusCreditProcessing
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_CreditProcessing
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Credit_Connection
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_event_enrichments.s_m_acq_EventEnrichment_Credit_Resign
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato  -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_histload_ResubmitCredit
+
+
+CDR_VIP_POSTPAY_GCB_CLAWBACK
+CDR_VIP_Postpay_Cash_Advance_Clawback
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_histload_POSConnect
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_GCP_SMPRecharge
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_GCP_SUBSCRIBER_LIFE
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_GCP_SMPRecharge
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_GCP_SUBSCRIBER_LIFE
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_script_init.EDH_SMP
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_script_init.EDH_SUB
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CCA_ACTIVITY
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CCA_ACTIVITY
+
+
+sh $$ACEINDIRECTSH $$ACESRCDIR $$ACEFILE1 $$ACEFILE2 $$SRCFILE $$SRCDIR
+sh $$ACEINDIRECTSH $$ACESRCDIR $$ACEFILE1 $$ACEFILE2 $$SRCFILE $$SRCDIR
+SAP Callidus Configuration and Development
+SAP Commissions
+
+
+
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventEnrichment_CUK_tariff_Resign
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_tariff
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig_hist
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato  -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventEnrichment_CUK_tariff_Resign
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato  -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_tariff
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato  -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig_hist
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato  -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_OD041A_hold_mig
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_GCB_COMMISSIONS
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONTRACT_START_END_DATE_DAILY
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_POSTPAY_REVENUE
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_PRODUCTS
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_ORDERS_Delta
+
+
+ACE_VALID_GCP_TOPUP_ROLLING_DDMMYYYY
+ACE_VALID_GCP_TOPUP_ROLLING_DDMMYYYY
+
+ACE_VALID_GCP_SUBSCRIBER_LIFECYCLE_YYYYMMDD
+ACE_VALID_GCP_SUBSCRIBER_LIFECYCLE_YYYYMMDD
+
+edh_consumer_products_20250212203745.dat
+edh_consumer_products_20250214.dat
+
+
+NOT((IN(ID,'1','14','15') AND SUB_TYPE='USG') OR (IN(ID,'15','16','17') AND SUB_TYPE='ADJ') )
+
+NOT((IN(ID,'1','14','15') AND SUB_TYPE='USG') OR (IN(ID,'15','16','17') AND SUB_TYPE='ADJ') 
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONSUMER_PRODUCTS
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONSUMER_POSTPAY_REVENUE
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONTRACT_START_END_DATE_DAILY
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONTRACT_START_END_DATE_DAILY
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_POSTPAY_REVENUE
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_PRODUCTS
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_GCB_COMMISSIONS
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONSUMER_PRODUCTS
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONSUMER_POSTPAY_REVENUE
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONTRACT_START_END_DATE_DAILY
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONSUMER_PRODUCTS
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONTRACT_START_END_DATE_DAILY
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_PRODUCTS
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONTRACT_START_END_DATE_DAILY
+
+
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONSUMER_PRODUCTS
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_CONTRACT_START_END_DATE_DAILY
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONSUMER_PRODUCTS
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_CONTRACT_START_END_DATE_DAILY
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_GCP_SMPRecharge
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_GCP_SUBSCRIBER_LIFECYCLE
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_GCP_SUBSCRIBER_LIFECYCLE
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_m_enrichment_glControl_detaildeposit
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_m_gl_enrichment_temp
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_current_previous
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_curr_base
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_agg_sapbpc1
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_agg_SAPBPC_file
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_agg_gl
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_agg_gl_file1
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_1
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_0
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_2
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_3
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u abasavaraj -p Welcome123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_contract_CONNECTION_4
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_1_default_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_2_minute_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_3_1hour_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_4_12hour_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_5_1day_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_6_1week_check
+
+
+
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_m_acq_USIEnrichment_Contract_Normal
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_m_acq_USIEnrichment_Contract_12HR
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_m_acq_USIEnrichment_Contract_1day
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_m_acq_USIEnrichment_Contract_1week
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_hist_connection
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_histload_resign
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_histload.s_m_hist_revenue
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u vignesh -p Vignesh123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_POS_CONNECTION
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u vignesh -p Vignesh123 -f ACE_DI -w wf_ace_di_histload wklt_acq_USIEnrichment.s_m_acq_EventEnrichment_IMEI_Handsetdata_Connection
+
+Carrotpotato@1
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_EDH_GCB_COMMISSIONS
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_load_event_trigger.s_m_acq_EventTrigger_load_EDH_GCB_COMMISSIONS
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_1_default_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_2_minute_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_3_1hour_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_4_12hour_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_5_1day_check
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_z_m_acq_usi_enrichment_Connection_6_1week_check
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_RET099
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_EventTrigger_load_EDH_CONSUMER_ORDERS_Delta
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_EventTrigger_load_EDH_CONTRACT_START_END_DATE_DAILY
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_EventTrigger_load_EDH_CCA_ACTIVITY
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_EventTrigger_load_EDH_CONSUMER_PRODUCTS
+
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f GL_REPORTING -w wf_gl_reports wklt_gll_reports.s_agg_gl_file1
+
+pmcmd starttask -sv tefadi_is_uat -d Domain_lndtefauat -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_initialization wklt_acq_load_valid_file.s_m_acq_load_DiseDailyUpgrades
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_Pre_EOM_Process_Automation s_m_load_Disetactical_upgrades
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_Pre_EOM_Process_Automation s_m_load_Missing_Dise_tactical_upg
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u anarasimha -p carrotpotato -f ACE_DI -w wf_ace_di_EOM_supplements s_m_held_dise_cancellation
+
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_EventValidation.s_m_acq_Eventvalidation_resigncancellation_dise_acq
+pmcmd starttask -sv tefadi_is_dev -d Domain_lndtefadev1 -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload wklt_acq_EventValidation.s_m_acq_eventvalidation_resigncancellation_dise_hist
+
+
+
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_m_acq_EventEnrichment_channel_RESIGN
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_m_acq_EventEnrichment_Channel_Connection
+pmcmd starttask -sv tefadi_is_sit -d Domain_lndtefasit -u PRAVEEN -p PRAVEEN -f ACE_DI -w wf_ace_di_histload usi_enrichments.s_m_acq_EventEnrichment_Channel_Connection1
+
+
+316264533
+1038050
+316624078
+
+9223372036854775807
+9223372036854775807
+
+TRUE (1) if the value is NULL.
+FALSE (0) if the value is not NULL.
+
+
+4799401264
+
+webi credentials-
+Account name - dmurugesan
+Password - Welcome@TEFA
+System name - iad-rpt-comm-dev-053:6400
+ 
+Account name - dmurugesan
+Password - Welcome@TEFA
+System name - iad-rpt-comm-sit-053:6400
+ 
+Account name - dmurugesan
+Password - Welcome@TEFA
+System name - iad-rpt-comm-uat-053:6400
+
+[ACE_DI.WF:wf_ace_di.WT:wklt_acq_load.ST:s_m_acq_EventTrigger_load_CreditProcessing]
+$$SRCFILE=indirect_ACE_VALID_CallidusCreditProcessing
+
+
+
+ODPU --> toapp
+
+
+[Friday 4:51 PM] Sahadevan, Nivedha
+select a.usi,b.usi,a.transaction_dt,b.transactiondate,a.credit_credittypeid,b.credittype,b.eventtype,a.total_rec,(b.rec_to_date-b.recoveryamount),b.commissionvalue,b.rec_to_date,b.recoveryamount,(a.total_rec+b.recoveryamount) as final_rec_val 
+from nsahadevan.ia_517_uat_val_tsa@tefaprd_di a, tefaext.tefa_rpt_detail@tefadev_tc b where a.usi = b.usi and a.transaction_dt = b.transactiondate and a.credit_credittypeid = 'TSA_Cash_Advance_Recovery' 
+and a.credit_credittypeid = b.credittype and b.channelname = 'TSA' and b.periodseq = '2533274790396648' 
+and round(a.total_rec,1) <> round((b.rec_to_date-b.recoveryamount),1);
+and round(b.rec_to_date,1) <> round((a.total_rec+b.recoveryamount),1);
+
+
+
+SELECT COUNT(*),payeeseq,periodseq,credittypeseq,sum(value) 
+FROM cs_credit WHERE periodseq = 2533274790396647 
+AND upper(name) like 'CIR%'
+AND credittypeseq IN (
+SELECT DATATYPESEQ FROM cs_credittype WHERE credittypeid in (
+'FR_POSTPAY_CASH_ADVANCE_DISE',
+'FR_POSTPAY_INSURANCE_ADVANCE',
+'FR_PREPAY_CASH_ADVANCE',
+'FR_REV_SHARE_ADVANCE',
+'MPD_POSTPAY_CASH_ADVANCE',
+'SMB_POSTPAY_CONNECTION_ADVANCE',
+'SMB_POSTPAY_RESIGN_ADVANCE',
+'TSA_POSTPAY_CASH_ADVANCE',
+'TT_POSTPAY_CASH_ADVANCE',
+'A1_COMMS_POSTPAY_CASH_ADVANCE'
+) AND removedate = TO_DATE ('01/01/2200', 'MM/DD/YYYY'))
+AND payeeseq ='4503599627371700'
+group by payeeseq,periodseq,credittypeseq;
+
+
+RITM1151406
+
+399277/2024
+
+select * from tefadi.acq_resign where BASE_TYP='POSTPAY ENTERPRISE' and EVENT_TYP='RE-SIGN_CANCELLATION'
+AND CONNECT_EVENT_VALID_FLG=1
+AND (RESIGN_EVENT_VALID_FLG=0 OR RESIGN_EVENT_VALID_FLG IS NULL)
+and to_char(transaction_dt,'yyyymm')=''
+
+only the first delete is happening, the first insert immediately after the delete itself is not working
+
+IA_529_DISE_RESIGN_PROCESSING_UPDATE
+
+CRQ000001560692
+
+helix
+sahadevann
+Junglebook99
+
+IA_543_Treatment of Negative Balances
+
+
+SELECT /*+ ORDERED */ :B3 PROCESSINGUNITSEQ,
+          DEP.POSITIONSEQ POSITIONSEQ,
+          DEP.PAYEESEQ PAYEESEQ,
+		  
+		  
+CRQ000001569926
+
+Please find the attached Detailed implementation plan
+ 
+Please refer Detailed implementation plan for Risk assessment questions, Service Impact, Install plan, Test plan and Backout plan
+455740/2024
+
+https://reinventionconsoledemo.accenture.com/GenWizard_Training_AE/index.html#c=1&sc=1&id=o8jogm&p=genwizardai
+
+table results share -- IA_529
+
+CDR_FR_POSTPAY_CASH_ADVANCE_DISE_N_TRIGGERED
+
+
+536318/2024
+
+
+10th 2hr
+11th 3hr
+17th 2hr
+
+
+4MFLP2N3L82B8
+
+
+COMMISSIONGROUP	                           COMMISSIONTYPE	                    Report name
+Advance					        Postpay Cash Advance	                       TEFA_RPT_ADVANCE
+Advance Recovery				Postpay Cash Advance Recovery	               TEFA_RPT_ADVANCE_RECOVERY
+Advance Recovery				Postpay Advance clawback	                   TEFA_RPT_ADVANCE_RECOVERY
+FTU Compensation				Fast Track Upgrade Revenue	                   TEFA_RPT_FTU_COMPENSATION
+Postpay GCB						SHIPMENT CHARGE	                               TEFA_RPT_POSTPAY_GCB
+Postpay GCB						Postpay SIM Rebate	                           TEFA_RPT_POSTPAY_GCB
+Postpay GCB						New Postpay Gross Connection Bonus	           TEFA_RPT_POSTPAY_GCB
+Postpay GCB						M4M Upfront Payment	                           TEFA_RPT_POSTPAY_GCB
+Postpay GCB						Apple Watch GCB Bonus	                       TEFA_RPT_POSTPAY_GCB
+Postpay GCB						Postpay GCB	                                   TEFA_RPT_POSTPAY_GCB
+Postpay GCB Clawback			Postpay Clawback	                           TEFA_RPT_POSTPAY_GCB_CLAWBACK
+Postpay GCB Clawback			Hardware Refund	                               TEFA_RPT_POSTPAY_GCB_CLAWBACK
+Postpay GCB Clawback			FR PROMO GCB Clawback	                       TEFA_RPT_POSTPAY_GCB_CLAWBACK
+Postpay GCB Clawback			Revenue Share Clawback	                       TEFA_RPT_POSTPAY_GCB_CLAWBACK
+Postpay Revshare				Postpay Revenue Share	                       TEFA_RPT_POSTPAY_REVSHARE
+Postpay Revshare				Rev Share Insurance	                           TEFA_RPT_POSTPAY_REVSHARE
+
+
+
+TEFADI.IA507_POSTPAY_REVENUESHARE_FRA;
+TEFADI.IA507_POSTPAY_REVENUESHARE_TTK;
+TEFADI.IA507_POSTPAY_REVENUESHARE_MPD;
+TEFADI.IA507_POSTPAY_REVENUESHARE_TSA;
+TEFADI.IA507_POSTPAY_REVENUESHARE_SMB;
+TEFADI.IA507_POSTPAY_REVENUESHARE_CON;
+
+707881/2024
+
+m_acq_EventEnrichment_Valid_Credit_Resubmitcredit
+
+
+
+11/22/2011	FEAT_051	Postpay	OOC > 90 days	TEFA	14636701293222996	14355226014896151	8091188102	-992634855	16607023625929008	20547673299896362	imported	01-06-2024 00:00:00				0	1	15-06-2024 00:00:00	9461	Small Biz SIMO 8GB	Mobile	1	0	1970324836974600	7.5	1970324836974601	7.5	1970324836974601												07974228876	4L4560	5L6124	DISE_3707344		VA8BAR		4L4560	5L6124	DISE_3707344	DISE	RE-SIGN	24	Postpay Handset Only	Postpay Handset Only		VIP	3L3211		0	2L2072	DISE		A		-992634855		I	0	1970324836974601	0	1970324836974601	0	1970324836974601	0	1970324836974601	0	1970324836974601	1	1970324836974600	29-07-2008 00:00:00	22-11-2011 00:00:00	24-04-2019 00:00:00	24-05-2019 00:00:00				0	1	0	0	0	38280596832649218	12-08-2024 03:02:52	1970324836974599	1970324836974599	1970324836974600			0	
+
+
+1195
+ 
+ 
+GD2:Disconnection - 11/22/2011
+product id - 1195
+GA19:Last Connection Type/PreContract Start Date - 22-11-2011
+
+
+CRQ000001601919
+Hi Andy Chan,
+Please find the test exit document for IA_542 in the attachment
+
+for that payfile, i restored all data from prd to lower env and have ran in both dev and uat env without giving commit in post sql,
+in both env it has completed within 10mins as we expected. i think it is not our end issue.
+
+
+Base tariff
+
+current_service_product id
+
+usi enrichment
+
+acq_connection
+acq_resign
+acq_contract
+acq_tariff
+acq_partneradjustment
+acq_partnerclaim
+acq_vas
+acq_topup
+acq_imei
+
+wklt_acq_USIEnrichment
+
+resign channel
+teds resign manufacture
+connection channel
+connection contract
+teds connection manufacture
+
+wklt_event_enrichments
+
+revenue_temp_load
+hist_partner
+resign partners
+resign contract
+resign cancellation partner
+IMEI resign
+
+
+
+ACE_VALID_DONGLE_ACTIVATIONS_DDMMYYYY 
+DL_DONGLE_ACT
+ACE_VALID_DongleBoltonPurchased_DDMMYYYY
+DL_DONGLE_PURCHASED
+ACE_VALID_PrepayActivationAdjustments_DDMMYYYY
+DL_PREPAY_ACT
+ACE_VALID_RcHandsetUpgrade_DDMMYYYY
+DL_RC_HANDSET_UPGRADE
+ACE_VALID_SMPRecharge_DDMMYYYY
+DL_SMP_RECHARGE
+
+teds_dongle_activations
+teds_dongle_bolton_purchased
+teds_prepay_activation_adjustment
+teds_rc_handset_upgrade
+teds_smp_recharge
+
+
+pmrep connect -r tefadi_dev -n anarasimha -x Mercury@123 -d Domain_lndtefadev1
+
+pmrep connect -r tefadi_dev -n anarasimha -x carrotpotato -d Domain_lndtefadev1
+ 
+pmrep objectexport -n wf_ace_OnDemand -u wf_ace_OnDemand_20241001.xml -o workflow -f ACE_DI -b -r -m -s -l wf_ace_OnDemand_20241001.log
+
+pmrep objectexport -n wf_ace_di_initialization -u wf_ace_di_initialization_20211203.xml -o workflow -f ACE_DI -b -r -m -s -l wf_ace_di_initialization_20241001.log
+
+pmrep objectexport -n wf_ace_di_histload -u wf_ace_di_histload_20211203.xml -o workflow -f ACE_DI -b -r -m -s -l wf_ace_di_histload_20241001.log
+
+ 2nd floor paramathi road 
+ 04286222895
+ 
+ 
+INC000006726301
+ 
+CANCELLATION
+-430187004-202409-257173675
+-449353745-202409-257173674
+-520662737-202409-257182315
+-534574094-202409-257173771
+
+DISCONNECTION
+-449353745-202409-296654241
+-488318625-202409-296676927
+-535035551-202409-296527156
+-994280909-202409-296527203
+-999660165-202409-296600786
+46367038-202409-296599263
+
+
+Round ( If Then Else ( F_SMB_EXCEPTION_ACCOUNT , LTV_SMB_EXCEPTION_ACCOUNT_BONUS ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA6:Account Num ) , F_SMB_RESIGN_BONUS_JAN2019 ) , 2 ) * If Then Else ( F_Num_of_lines_check , 1 , -1 ) 
+
+
+
+F_SMB_EXCEPTION_ACCOUNT
+
+LTV_SMB_EXCEPTION_ACCOUNTS ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA6:Account Num ) = 1 
+
+
+Round ( If Then Else ( F_DISCONNECTION_SAME_MONTH , F_SMB_RESIGN_BONUS_CLAWBACK_JAN2019 , F_SMB_RESIGN_BONUS_DIFF_MONTH_CLAWBACK ) * - 1 , 2 ) * If Then Else ( F_Num_of_lines_check , 1 , -1 ) 
+
+Round ( If Then Else ( F_SMB_EXCEPTION_ACCOUNT , LTV_SMB_EXCEPTION_ACCOUNT_BONUS ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA6:Account Num ) , F_SMB_RESIGN_BONUS_JAN2019 ) , 2 ) * If Then Else ( F_Num_of_lines_check , 1 , -1 ) 
+
+
+-430187004-202408-257052098
+
+Round ( FVV_SMB_POSTPAY_CONNECTION_BONUS:month , 2 ) * If Then Else ( F_Num_of_lines_check , 1 , -1 ) 
+
+create table cs_salestransaction_before_UT as
+select * from tcmp.cs_salestransaction@tefauat_tc where COMPENSATIONDATE>='01-08-2024' and COMPENSATIONDATE<'01-09-2024';
+
+create table cs_credit_before_UT as
+select * from tcmp.cs_credit@tefauat_tc where periodseq='2533274790396654';
+
+create table CS_MEASUREMENT_before_UT as
+select * from tcmp.CS_MEASUREMENT@tefauat_tc where periodseq='2533274790396654';
+
+create table cs_deposit_before_UT as
+select * from tcmp.cs_deposit@tefauat_tc where periodseq='2533274790396654';
+
+create table cs_salestrans_before_UT_sep as
+select * from tcmp.cs_salestransaction@tefauat_tc where COMPENSATIONDATE>='01-09-2024' and COMPENSATIONDATE<'01-10-2024';
+
+create table cs_credit_before_UT_sep as
+select * from tcmp.cs_credit@tefauat_tc where periodseq='2533274790396655';
+
+create table CS_MEASUREMENT_before_UT_sep as
+select * from tcmp.CS_MEASUREMENT@tefauat_tc where periodseq='2533274790396655';
+
+create table cs_deposit_before_UT_sep as
+select * from tcmp.cs_deposit@tefauat_tc where periodseq='2533274790396655';
+
+DL
+RC
+claim form
+inc policy
+statement
+acc detail
+
+
+
+resign,disc- same
+resign,disc- diff
+resign,resign cancell-diff
+resign,resign cancel - same
+resign,resign cancel - same
+
+DL
+revenue_temp
+acq_rev
+hist_rev
+tc_rev
+hist_connection
+hist_res
+acq_con
+acq_res
+
+
+TEFA_RPT_PMCREDITTRACE
+TEFA_RPT_DEPOSITPMTRACE
+
+
+
+Round ( F_SMB_POSTPAY_CONNECTION_ADVANCE , 2 ) * If Then Else ( F_Num_of_lines_check , 1 , -1 ) 
+
+F_SMB_POSTPAY_CONN_ADVANCE_PERIOD * Round ( Transaction.Value * If Then Else ( LT_SMB_ELIGIBLE_CATAGORY_ADV ( Transaction.Acct Date , <Classifier> ) = 1 , LTV_SMB_EX_NON-EX_CONN_RESIGN_ADVANCE ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code ) , LT_SMB_EX_NON-EX_CONN_RESIGN_ADVANCE_SIMO ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code ) ) , 2 )
+
+If Then Else ( LT_SMB_CONN_ADV_PERIOD_NEW_ELIGIBILITY ( Transaction.Acct Date , Transaction.GA2:Last Interaction Partner L4 ) = 1 , LT_SMB_CONN_ADV_PERIOD_NEW ( Transaction.Acct Date , Transaction.GA2:Last Interaction Partner L4 , <Classifier> , Transaction.GN6:Current Contract Tenure/Top Up Count , Transaction.Event Type.ID ) , FVV_SMB_CONNECTION_ADVANCE_PERIOD:month ) 
+ 
+F_SMB_POSTPAY_CONN_ADVANCE_PERIOD * Round ( Transaction.Value * If Then Else ( LT_SMB_ELIGIBLE_CATAGORY_ADV ( Transaction.Acct Date , <Classifier> ) = 1 , LTV_SMB_EX_NON-EX_CONN_RESIGN_ADVANCE ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code ) , LT_SMB_EX_NON-EX_CONN_RESIGN_ADVANCE_SIMO ( Transaction.Acct Date , Transaction.Transaction Participant Pre-Assignment For Participant().GA5:L3 Partner Code ) ) , 2 ) 
+
+If Then Else ( LT_SMB_CONN_ADV_PERIOD_NEW_ELIGIBILITY ( Transaction.Acct Date , Transaction.GA2:Last Interaction Partner L4 ) = 1 , LT_SMB_CONN_ADV_PERIOD_NEW ( Transaction.Acct Date , Transaction.GA2:Last Interaction Partner L4 , <Classifier> , Transaction.GN6:Current Contract Tenure/Top Up Count , Transaction.Event Type.ID ) , FVV_SMB_CONNECTION_ADVANCE_PERIOD:month ) 
+
+F_SMB_POSTPAY_CONN_ADVANCE_PERIOD
+LT_SMB_CONN_ADV_PERIOD_NEW_ELIGIBILITY
+LT_SMB_CONN_ADV_PERIOD_NEW
+LT_SMB_ELIGIBLE_CATAGORY_ADV
+LT_SMB_EX_NON-EX_CONN_RESIGN_ADVANCE_SIMO
+FVV_SMB_CONNECTION_ADVANCE_PERIOD
+LTV_SMB_EX_NON-EX_CONN_RESIGN_ADVANCE
+
+& "C:/Users/praveen.g.k/OneDrive - Accenture/Desktop/Py_project/.venv/Scripts/python.exe" "c:/Users/praveen.g.k/OneDrive - Accenture/Desktop/Py_project/WEB.py" --username Nivedha --password Nivedha@123
+
+IA_543 Treatment of Negative Balances
+ 
+Change Description: 
+Currently the ‘Prior Period Balance’ line in the final statement of Commission report is not reflecting the value.
+we are going to report the total balance in the ‘Outstanding Balance’ field and the new balance in the ‘Remaining balance’ field in the final statement of commissions report.
+
+Benefits of the change:
+Reporting the total balance in the 'Outstanding Balance' field, making it easy to see the overall amount due.
+Displaying the new balance in the 'Remaining Balance' field, providing a clear view of the current period's balance
+
+Impact on service : 
+No impact on service
+ 
+Impact on Customer :
+No Impact on customers
+ 
+Worst case scenario :
+ 
+Change implementor: Praveen
+praveen.g.k@accenture.com
+
+
+
+Dispute Resolution for Partners who raises queries with respect to payments
+
+£
+
+select * from tefaext.tefa_rpt_detail where periodseq='2533274790396656' and EVENTTYPE='BALANCES';
+
+select * from tefaext.tefa_rpt_payeea where PAYEEID='4L4148' and periodseq='2533274790396656';
+
+select * from tcmp.cs_applieddeposit where periodseq='2533274790396656' and PAYEESEQ='4503599627371591';
+
+select * from tcmp.cs_deposit where periodseq='2533274790396656' and PAYEESEQ='4503599627371671';
+
+select * from tcmp.cs_paymentsummary where periodseq='2533274790396656' and POSITIONSEQ='4785074604082269';
+
+select * from tefaext.tefa_rpt_statement where periodseq='2533274790396656' and PAYEESEQ='4503599627371591';
+
+select * from tefaext.tefa_rpt_detail where periodseq='2533274790396656' and EVENTTYPE='BALANCES' and PAYEESEQ='4503599627371591';
+
+We have completed the UAT testing for IA_542 watch logic change with October 2024 data set.
+The usual reports are uploaded to share point. Kindly review and let us know if any.
+
+Hi @Mark.Poulton /@Scott Bevan .
+
+We have completed the UAT testing for IA_543 negative balances with October 2024  and November 2024 data sets.
+
+For October 2024, we processed the SMB, TSA, CON, VIP, and FRA channels. This was due to Scott included adjustments for these channels, along with SMB, in the initial deposit file.
+please consider SMB channel alone while validation and For November we have only processed SMB.
+
+New created file for negative balances(TEFA_RPT_NEGATIVE_BALANCE_REPORT) zipped into All Detail Statement Report.
+
+
+The test reports for October and November are uploaded to share point. Kindly review and let us know if any.
+
+
+
+Thanks
+
+Praveen
+
+If {TEFA_SP_STATEMENT_READ.DISPLAYTEXT} = 'Balance_carried_forward' And IsNull({TEFA_SP_STATEMENT_READ.VALUE}) Then
+    {TEFA_SP_STATEMENT_READ.INC_VAT_VALUE}
+Else
+    {TEFA_SP_STATEMENT_READ.VALUE}
+	
+	
+	
+Partner for the transaction can be directly taken from the "PARTNER" column from the source feed.
+Transactions are classified as either Accessory or Insurance.
+Based on the partner and transaction type, Level 6 will be updated to the transactions as 'CAPXACC', 'CONXACC', 'INTXACC' and 'ACCXACC' for the Accessories transactions and as 'CAPXINS','CONXINS','INTXINS' and 'ACCXINS' for the Insurance transactions.
+
+
+
+The existing matching condition uses the concatenated value of partner, physical location, and campaign columns from the source file (EDH_NC_ACCESSORIES) to match with the mapping column in the telesales reference data file for updating the Level 6 code.
+Moving forward, physical location details will no longer be available for the TSA channel in the source file (EDH_NC_ACCESSORIES).
+For the TSA channel, going forward will use the Partner column and the Channel name from the channel hierarchy to update the L6 code.
+The existing matching condition (using partner, physical location, and campaign) will continue to be applied for all other channels except TSA.
+
+
+TEFA_TXSTAR_PRD_20250108_033203_COMMISSIONABLER1.txt
+TEFA_TXSTAR_PRD_20250107_041343_COMMISSIONABLER1.txt
+TEFA_TXSTAR_PRD_20250107_031802_COMMISSIONABLER1.txt
+TEFA_TXSTAR_PRD_20250106_230842_COMMISSIONABLER1.txt
+
+
+/apps/Callidus/tefa/bin/initialization.sh 'EDH_SUBSCRIBER_LIFECYCLE' 1020
+/apps/Callidus/tefa/bin/initialization.sh 'EDH_SMP_RECHARGE' 1021
+
+
+EDH_SMP_RECHARGE
+EDH_SUBSCRIBER_LIFECYCLE
+
+we calculate payment for level 5 and will roll it up to level 4
+
+
+IA_557 Voice_SOHO_EPD_Discount
+
+
+Teds Dongle Activations
+Teds Dongle Bolton Purchased
+Teds Rc Handset Upgrade
+
+narmadha - 
+
+
+New USI
+
+acq_connection - USI(New con)
+acq_resign
+  
+hist_partner
+
+Acq_revenue - billing (New con) partner enrich
+
+
+[ACE_DI.WF:wf_ace_di_histload.WT:wklt_acq_load_event_trigger.ST:s_m_acq_EventTrigger_load_EDH_Telesales_Accessories]
+$$ACEFILE1="EDH_ACCESSORIES"
+$$SRCFILE=indirect_ACE_VALID_EDH_ACCESSORIES
+$$ACEVALIDFILE=ACE_VALID_EDH_ACCESSORIES
+
+
+[ACE_DI.WF:wf_ace_di_histload.WT:wklt_new_telesales_update.ST:s_m_acq_EventTrigger_load_EDH_Telesales_Accessories]
+$$ACEFILE1="EDH_ACCESSORIES"
+$$SRCFILE=indirect_ACE_VALID_EDH_ACCESSORIES
+$$ACEVALIDFILE=ACE_VALID_EDH_ACCESSORIES
+
+
+
+insert into commissionable_events (select * from commeventsbkpnew where event_typ in 
+('CONNECTION','RE-SIGN','MIGRATION') and base_typ='POSTPAY CONSUMER' and channel_grp='MPD' and
+nvl(retention_partner_Level_5,acquisition_partner_level_5) in
+(select channel_id from tefadi.hist_channel_hierarchy where end_Dt like '%2200%' and channel_grp='MPD' and channel_valid_flg='1'));
+
+
+select * from tefadi.commissionable_events_jul_c1@tefaprd_di
+where event_typ in ('CONNECTION','MIGRATION','RE-SIGN')
+AND channel_grp='SMB' and nvl(retention_partner_Level_4,acquisition_partner_level_4) in
+(select channel_id from hist_channel_hierarchy@tefaprd_di where channel_grp='SMB'
+AND end_dt='01/01/2200 00:00:00' and CHANNEL_LEVEL='4');
+
+
+select /*+ parallel(100)*/count(*),EVENTTYPESEQ from tcmp.cs_salestransaction@tefauat_tc where COMPENSATIONDATE>='01/01/2025' and COMPENSATIONDATE<'01/02/2025'
+and GENERICATTRIBUTE3 in (select channel_id from tefadi.hist_channel_hierarchy@tefaprd_di 
+where end_Dt like '%2200%' and channel_grp='SMB' and channel_valid_flg='1') group by EVENTTYPESEQ;
+
+tariff and partner fail..
+
+billings event --> after event enrichment --> hist patch no need
+
+msisdn changing the base type so to they creating new usi.
+
+revenue enrichment table...
+
+contract fail..
+
+IA_563 Monthly Connection Bonus - Change to Replace the Existing Quarterly Connection Bonus (Giacom Only)
+
+
+CRQ000001641627-ACE Implementation for February 2025 SBI
+
+myte
+leave
+office
+
+praveen.g.k@calliduscloud.onmicrosoft.com
+
+ https://deliverynavigator.cloud.google.com
+
+
+
+
+
+$$ACEFILE1="ITEMISED_MANUAL_ADJUSTMENT_PAYMENT"
+$$SRCFILE=indirect_ITEMISED_MANUAL_ADJUSTMENT_PAYMENT
+$$TGTFILE=ITEMISED_MANUAL_ADJUSTMENT_PAYMENT_
+
+
+$$ACEFILE3="Manual Adjustment Payment Reference"
+$$SRCFILE2=indirect_Manual_Adjustment_Report
+$$SRCFILE=indirect_Manual_Adjustment
+
+$$ACEINDIRECTSH $$ACESRCDIR $$ACEFILE1 $$ACEFILE2 $$SRCFILE $$SRCDIR
+
+
+
+
+
+
+
+
+https://drive.google.com/drive/folders/1s69QtAr3FXLwnHKY71NGXPdYAblXMUeq?usp=drive_link
+
+
+
+
+
+
+
+
+
+As an Data analyst working with Commissions project my current role is Primarily Informatica & SAP commissions developer and my responsibilities include direct interaction with clients, analyzing the requirements, development and testing also engaged in managing day to day BAU operations.
